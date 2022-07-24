@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2022 at 04:07 PM
+-- Generation Time: Jul 24, 2022 at 03:48 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -35,6 +35,13 @@ CREATE TABLE `mahasiswa` (
   `alamat` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`nim`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat`) VALUES
+(10121112, 'Teuku Dika Saputra Zulkarnaen', 'Bandung', '2022-07-01', 'Jl.Kalijati 8');
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +62,13 @@ CREATE TABLE `mahasiswa_nilai` (
   `angkatan` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `mahasiswa_nilai`
+--
+
+INSERT INTO `mahasiswa_nilai` (`nim`, `nama`, `no_mk`, `nama_mk`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`, `angkatan`) VALUES
+(10121112, 'Teuku Dika Saputra Zulkarnaen', 'A0001', 'Pemrograman Web', 14, 90, 90, 90, 90, 90, 2021);
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +79,13 @@ CREATE TABLE `mata_kuliah` (
   `no_mk` varchar(20) NOT NULL,
   `nama_mk` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mata_kuliah`
+--
+
+INSERT INTO `mata_kuliah` (`no_mk`, `nama_mk`) VALUES
+('A0001', 'Pemrograman Web');
 
 -- --------------------------------------------------------
 
@@ -85,6 +106,18 @@ CREATE TABLE `simulasi_nilai_akhir` (
   `tugas_3` int(3) NOT NULL,
   `uts` int(3) NOT NULL,
   `uas` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -115,6 +148,22 @@ ALTER TABLE `mata_kuliah`
 --
 ALTER TABLE `simulasi_nilai_akhir`
   ADD KEY `no_mk` (`no_mk`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
