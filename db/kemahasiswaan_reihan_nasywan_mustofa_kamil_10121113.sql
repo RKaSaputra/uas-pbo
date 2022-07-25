@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2022 at 03:48 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Waktu pembuatan: 25 Jul 2022 pada 08.39
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa`
+-- Struktur dari tabel `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -36,7 +36,7 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mahasiswa`
+-- Dumping data untuk tabel `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa_nilai`
+-- Struktur dari tabel `mahasiswa_nilai`
 --
 
 CREATE TABLE `mahasiswa_nilai` (
@@ -63,7 +63,7 @@ CREATE TABLE `mahasiswa_nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mahasiswa_nilai`
+-- Dumping data untuk tabel `mahasiswa_nilai`
 --
 
 INSERT INTO `mahasiswa_nilai` (`nim`, `nama`, `no_mk`, `nama_mk`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`, `angkatan`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `mahasiswa_nilai` (`nim`, `nama`, `no_mk`, `nama_mk`, `kehadiran`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mata_kuliah`
+-- Struktur dari tabel `mata_kuliah`
 --
 
 CREATE TABLE `mata_kuliah` (
@@ -81,7 +81,7 @@ CREATE TABLE `mata_kuliah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mata_kuliah`
+-- Dumping data untuk tabel `mata_kuliah`
 --
 
 INSERT INTO `mata_kuliah` (`no_mk`, `nama_mk`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `mata_kuliah` (`no_mk`, `nama_mk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `simulasi_nilai_akhir`
+-- Struktur dari tabel `simulasi_nilai_akhir`
 --
 
 CREATE TABLE `simulasi_nilai_akhir` (
@@ -111,73 +111,70 @@ CREATE TABLE `simulasi_nilai_akhir` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `username` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`username`, `password`) VALUES
+('admin', '21232f297a57a5a743894a0e4a801fc3'),
+('erika', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `mahasiswa`
+-- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`);
 
 --
--- Indexes for table `mahasiswa_nilai`
+-- Indeks untuk tabel `mahasiswa_nilai`
 --
 ALTER TABLE `mahasiswa_nilai`
   ADD KEY `nim` (`nim`),
   ADD KEY `no_mk` (`no_mk`);
 
 --
--- Indexes for table `mata_kuliah`
+-- Indeks untuk tabel `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
   ADD PRIMARY KEY (`no_mk`);
 
 --
--- Indexes for table `simulasi_nilai_akhir`
+-- Indeks untuk tabel `simulasi_nilai_akhir`
 --
 ALTER TABLE `simulasi_nilai_akhir`
   ADD KEY `no_mk` (`no_mk`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `mahasiswa_nilai`
+-- Ketidakleluasaan untuk tabel `mahasiswa_nilai`
 --
 ALTER TABLE `mahasiswa_nilai`
   ADD CONSTRAINT `mahasiswa_nilai_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mahasiswa_nilai_ibfk_2` FOREIGN KEY (`no_mk`) REFERENCES `mata_kuliah` (`no_mk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `simulasi_nilai_akhir`
+-- Ketidakleluasaan untuk tabel `simulasi_nilai_akhir`
 --
 ALTER TABLE `simulasi_nilai_akhir`
   ADD CONSTRAINT `simulasi_nilai_akhir_ibfk_1` FOREIGN KEY (`no_mk`) REFERENCES `mata_kuliah` (`no_mk`) ON DELETE CASCADE ON UPDATE CASCADE;
