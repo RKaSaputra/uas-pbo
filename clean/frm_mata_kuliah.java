@@ -18,13 +18,14 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         database = dbsetting.SettingPanel("DBDatabase");
         user = dbsetting.SettingPanel("DBUsername");
         pass = dbsetting.SettingPanel("DBPassword");
+        table_mk.setModel(tableModel);
         
+        disable_text();
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
         
-        table_mk.setModel(tableModel);
         settableload();
     }
     private javax.swing.table.DefaultTableModel tableModel=getDefaultTableModel();
@@ -119,10 +120,12 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         txt_no_mk.setText(tableModel.getValueAt(row, 0).toString());
         txt_nama_mk.setText(tableModel.getValueAt(row, 1).toString());
         
+        
         btn_simpan.setEnabled(false);
         btn_ubah.setEnabled(true);
         btn_hapus.setEnabled(true);
         btn_batal.setEnabled(true);
+        btn_keluar.setEnabled(false);
         enable_text();
     }
     @SuppressWarnings("unchecked")
@@ -348,6 +351,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
                 btn_ubah.setEnabled(false);
                 btn_hapus.setEnabled(false);
                 btn_batal.setEnabled(false);
+                btn_keluar.setEnabled(true);
                 disable_text();
                 JOptionPane.showMessageDialog(null, "Data Berhasil Dirubah");
             } catch(Exception ex){
@@ -363,7 +367,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_batal.setEnabled(true);
-        btn_keluar.setEnabled(true);
+        btn_keluar.setEnabled(false);
         enable_text();
     }//GEN-LAST:event_btn_tambahActionPerformed
 
@@ -379,6 +383,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         btn_simpan.setEnabled(false);
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
+        btn_keluar.setEnabled(true);
         clear_text();
         disable_text();
     }//GEN-LAST:event_btn_batalActionPerformed
@@ -405,7 +410,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
                 Statement stt = kon.createStatement();
                 String SQL = "INSERT INTO mata_kuliah(no_mk,nama_mk) VALUES "
                         +"( '"+txt_no_mk.getText()+"',"
-                        +" ' "+txt_nama_mk.getText()+" ')";
+                        +" '"+txt_nama_mk.getText()+" ')";
                 stt.executeUpdate(SQL);
                 data[0] = txt_no_mk.getText();
                 data[1] = txt_nama_mk.getText();
@@ -421,6 +426,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
         clear_text();
         disable_text();
     }//GEN-LAST:event_btn_simpanActionPerformed
@@ -445,6 +451,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
             btn_hapus.setEnabled(false);
             btn_batal.setEnabled(false);
             btn_simpan.setEnabled(false);
+            btn_keluar.setEnabled(true);
             disable_text();
             JOptionPane.showMessageDialog(null
                     , "Data Berhasil Dihapus");

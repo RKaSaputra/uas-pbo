@@ -44,6 +44,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(false);
     }
     
     
@@ -166,7 +167,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         btn_simpan.setEnabled(false);
         btn_ubah.setEnabled(true);
         btn_hapus.setEnabled(true);
-        btn_batal.setEnabled(false);
+        btn_batal.setEnabled(true);
         enable_text();
     }
     
@@ -539,6 +540,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_keluar.setEnabled(false);
+        btn_batal.setEnabled(true);
         enable_text();
     }//GEN-LAST:event_btn_tambahActionPerformed
 
@@ -568,11 +570,16 @@ public class frm_mahasiswa extends javax.swing.JFrame {
                 data[3] = tanggal;
                 data[4] = txt_alamat.getText();
                 tableModel.insertRow(0, data);
+                
                 stt.close();
                 kon.close();
                 clear_text();
-                btn_simpan.setEnabled(false);
                 disable_text();
+                btn_simpan.setEnabled(false);
+                btn_batal.setEnabled(false);
+                btn_keluar.setEnabled(true);
+                
+                
                 JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
            
                 
@@ -626,11 +633,14 @@ public class frm_mahasiswa extends javax.swing.JFrame {
                 tableModel.insertRow(row, data);
                 stt.close();
                 kon.close();
+                
                 clear_text();
+                disable_text();
                 btn_simpan.setEnabled(false);
                 btn_ubah.setEnabled(false);
                 btn_hapus.setEnabled(false);
-                disable_text();
+                btn_batal.setEnabled(false);
+                
                 JOptionPane.showMessageDialog(null, "Data Berhasil Dirubah");
             } catch(Exception ex){
                 System.err.println(ex.getMessage());
@@ -651,9 +661,13 @@ public class frm_mahasiswa extends javax.swing.JFrame {
             tableModel.removeRow(row);
             stt.close();
             kon.close();
+            
             clear_text();
+            disable_text();
             btn_ubah.setEnabled(false);
             btn_hapus.setEnabled(false);
+            btn_batal.setEnabled(false);
+            btn_keluar.setEnabled(true);
             JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
             
         } catch(Exception ex) {
@@ -673,8 +687,13 @@ public class frm_mahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_searchKeyReleased
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-        // TODO add your handling code here:
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+        btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
         clear_text();
+        disable_text();
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void txt_namaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_namaKeyTyped
@@ -700,7 +719,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nimKeyTyped
 
     private void btn_keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_keluarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btn_keluarActionPerformed
 
     /**
