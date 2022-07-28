@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2022 at 05:46 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Waktu pembuatan: 28 Jul 2022 pada 16.20
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa`
+-- Struktur dari tabel `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -36,7 +36,7 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mahasiswa`
+-- Dumping data untuk tabel `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa_nilai`
+-- Struktur dari tabel `mahasiswa_nilai`
 --
 
 CREATE TABLE `mahasiswa_nilai` (
@@ -61,20 +61,29 @@ CREATE TABLE `mahasiswa_nilai` (
   `tugas_3` int(3) NOT NULL,
   `uts` int(3) NOT NULL,
   `uas` int(3) NOT NULL,
-  `angkatan` int(4) NOT NULL
+  `angkatan` int(4) NOT NULL,
+  `nilai_absen` int(11) NOT NULL,
+  `nilai_tugas` int(11) NOT NULL,
+  `nilai_uts` int(11) NOT NULL,
+  `nilai_uas` int(11) NOT NULL,
+  `nilai_akhir` int(11) NOT NULL,
+  `indeks` varchar(128) NOT NULL,
+  `keterangan` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mahasiswa_nilai`
+-- Dumping data untuk tabel `mahasiswa_nilai`
 --
 
-INSERT INTO `mahasiswa_nilai` (`id`, `nim`, `nama`, `no_mk`, `nama_mk`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`, `angkatan`) VALUES
-(13, 10121109, ' bilal ', 'A0002', ' jepang ', 1, 2, 3, 4, 5, 6, 7);
+INSERT INTO `mahasiswa_nilai` (`id`, `nim`, `nama`, `no_mk`, `nama_mk`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`, `angkatan`, `nilai_absen`, `nilai_tugas`, `nilai_uts`, `nilai_uas`, `nilai_akhir`, `indeks`, `keterangan`) VALUES
+(13, 10121109, ' bilal ', 'A0002', ' jepang ', 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 90, '', ''),
+(15, 10121109, ' bilal ', 'A0003', ' web ', 14, 14, 14, 14, 14, 14, 14, 1, 1, 1, 1, 1, 'A', 'L'),
+(16, 10121113, ' reihan nasywan', 'A0002', ' jepang ', 15, 15, 15, 12, 15, 15, 2023, 1, 1, 1, 1, 1, 'A', 'L');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mata_kuliah`
+-- Struktur dari tabel `mata_kuliah`
 --
 
 CREATE TABLE `mata_kuliah` (
@@ -83,7 +92,7 @@ CREATE TABLE `mata_kuliah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mata_kuliah`
+-- Dumping data untuk tabel `mata_kuliah`
 --
 
 INSERT INTO `mata_kuliah` (`no_mk`, `nama_mk`) VALUES
@@ -94,7 +103,7 @@ INSERT INTO `mata_kuliah` (`no_mk`, `nama_mk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `simulasi_nilai`
+-- Struktur dari tabel `simulasi_nilai`
 --
 
 CREATE TABLE `simulasi_nilai` (
@@ -110,20 +119,29 @@ CREATE TABLE `simulasi_nilai` (
   `tugas_2` int(3) NOT NULL,
   `tugas_3` int(3) NOT NULL,
   `uts` int(3) NOT NULL,
-  `uas` int(3) NOT NULL
+  `uas` int(3) NOT NULL,
+  `nilai_absen` int(11) NOT NULL,
+  `nilai_tugas` int(11) NOT NULL,
+  `nilai_uts` int(11) NOT NULL,
+  `nilai_uas` int(11) NOT NULL,
+  `nilai_akhir` int(11) NOT NULL,
+  `indeks` varchar(11) NOT NULL,
+  `keterangan` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `simulasi_nilai`
+-- Dumping data untuk tabel `simulasi_nilai`
 --
 
-INSERT INTO `simulasi_nilai` (`id`, `no_mk`, `nama_mk`, `persentase_absen`, `persentase_tugas`, `persentase_uts`, `persentase_uas`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`) VALUES
-(3, 'A0004', 'algoritma ', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+INSERT INTO `simulasi_nilai` (`id`, `no_mk`, `nama_mk`, `persentase_absen`, `persentase_tugas`, `persentase_uts`, `persentase_uas`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`, `nilai_absen`, `nilai_tugas`, `nilai_uts`, `nilai_uas`, `nilai_akhir`, `indeks`, `keterangan`) VALUES
+(3, 'A0004', 'algoritma ', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 'A', 'LULUS'),
+(16, 'A0002', ' jepang ', 90, 90, 90, 90, 14, 90, 90, 90, 90, 90, 5, 53, 27, 36, 104, 'A', ''),
+(17, 'A0003', ' web ', 60, 60, 60, 60, 10, 60, 60, 60, 60, 60, 0, 35, 18, 24, 66, 'C', 'Tidak Lulus');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -137,13 +155,13 @@ CREATE TABLE `user` (
 --
 
 --
--- Indexes for table `mahasiswa`
+-- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`);
 
 --
--- Indexes for table `mahasiswa_nilai`
+-- Indeks untuk tabel `mahasiswa_nilai`
 --
 ALTER TABLE `mahasiswa_nilai`
   ADD PRIMARY KEY (`id`),
@@ -151,59 +169,59 @@ ALTER TABLE `mahasiswa_nilai`
   ADD KEY `no_mk` (`no_mk`);
 
 --
--- Indexes for table `mata_kuliah`
+-- Indeks untuk tabel `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
   ADD PRIMARY KEY (`no_mk`);
 
 --
--- Indexes for table `simulasi_nilai`
+-- Indeks untuk tabel `simulasi_nilai`
 --
 ALTER TABLE `simulasi_nilai`
   ADD PRIMARY KEY (`id`),
   ADD KEY `no_mk` (`no_mk`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `mahasiswa_nilai`
+-- AUTO_INCREMENT untuk tabel `mahasiswa_nilai`
 --
 ALTER TABLE `mahasiswa_nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `simulasi_nilai`
+-- AUTO_INCREMENT untuk tabel `simulasi_nilai`
 --
 ALTER TABLE `simulasi_nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `mahasiswa_nilai`
+-- Ketidakleluasaan untuk tabel `mahasiswa_nilai`
 --
 ALTER TABLE `mahasiswa_nilai`
   ADD CONSTRAINT `mahasiswa_nilai_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mahasiswa_nilai_ibfk_2` FOREIGN KEY (`no_mk`) REFERENCES `mata_kuliah` (`no_mk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `simulasi_nilai`
+-- Ketidakleluasaan untuk tabel `simulasi_nilai`
 --
 ALTER TABLE `simulasi_nilai`
   ADD CONSTRAINT `simulasi_nilai_ibfk_1` FOREIGN KEY (`no_mk`) REFERENCES `mata_kuliah` (`no_mk`) ON DELETE CASCADE ON UPDATE CASCADE;
