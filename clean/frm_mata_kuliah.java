@@ -1,9 +1,7 @@
-
 package kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113;
 
 import javax.swing.*;
 import java.sql.*;
-
 
 public class frm_mata_kuliah extends javax.swing.JFrame {
     koneksi dbsetting;
@@ -20,14 +18,15 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         pass = dbsetting.SettingPanel("DBPassword");
         table_mk.setModel(tableModel);
         
-        disable_text();
+        
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
-        
+        disable_text();
         settableload();
     }
+    
     private javax.swing.table.DefaultTableModel tableModel=getDefaultTableModel();
     private javax.swing.table.DefaultTableModel getDefaultTableModel(){
         return new javax.swing.table.DefaultTableModel(
@@ -52,20 +51,20 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         try{
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database,user,pass);
-            
             Statement stt = kon.createStatement();
             String SQL = "select * from mata_kuliah";
             ResultSet res = stt.executeQuery(SQL);
+            
             while(res.next()){
                 data[0] = res.getString(1);
                 data[1] = res.getString(2);
                 tableModel.addRow(data);
             }
+            
             res.close();
             stt.close();
             kon.close();
-        }
-        catch(Exception ex){
+        } catch(Exception ex){
             System.err.println(ex.getMessage());
             JOptionPane.showMessageDialog(null,
                     ex.getMessage(),"Error",
@@ -73,14 +72,14 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
             System.exit(0);
         }
     }
-    private void caridata(String key){
+    
+    private void search(String key){
         tableModel.setRowCount(0);
         try{
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt=kon.createStatement();
             String SQL = "SELECT * from mata_kuliah WHERE nama_mk LIKE '%"+key+"%'";
-            
             ResultSet res = stt.executeQuery(SQL);
             
             while(res.next()){
@@ -99,27 +98,12 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         }
     }
     
-    public void clear_text(){
-        
-        txt_no_mk.setText("");
-        txt_nama_mk.setText("");
-    }
-    
-    public void disable_text(){
-        txt_no_mk.setEditable(false);
-        txt_nama_mk.setEditable(false);
-    }
-    
-    public void enable_text(){
-        txt_no_mk.setEditable(true);
-        txt_nama_mk.setEditable(true);
-    }
     int row = 0;
     public void fieldshow(){
         row = table_mk.getSelectedRow();
+        
         txt_no_mk.setText(tableModel.getValueAt(row, 0).toString());
         txt_nama_mk.setText(tableModel.getValueAt(row, 1).toString());
-        
         
         btn_simpan.setEnabled(false);
         btn_ubah.setEnabled(true);
@@ -128,6 +112,22 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         btn_keluar.setEnabled(false);
         enable_text();
     }
+    
+    public void enable_text(){
+        txt_no_mk.setEditable(true);
+        txt_nama_mk.setEditable(true);
+    }
+    
+    public void disable_text(){
+        txt_no_mk.setEditable(false);
+        txt_nama_mk.setEditable(false);
+    }
+    
+    public void clear_text(){
+        txt_no_mk.setText("");
+        txt_nama_mk.setText("");
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -326,6 +326,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
     private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
         String no_mk = txt_no_mk.getText();
         String nama_mk = txt_nama_mk.getText();
+        
         if((no_mk.isEmpty() | (nama_mk.isEmpty()))){
             JOptionPane.showMessageDialog(null,"Data Tidak Boleh Kosong, Silahkan Lengkapi :> ");
             txt_no_mk.requestFocus();
@@ -339,36 +340,40 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
                         + "`nama_mk`='"+nama_mk+"' "
                         + "WHERE "
                         + "`no_mk`='"+tableModel.getValueAt(row, 0).toString()+"';";
+                
                 stt.executeUpdate(SQL);
                 data[0] = no_mk;
                 data[1] = nama_mk;
+                
                 tableModel.removeRow(row);
                 tableModel.insertRow(row, data);
+                
                 stt.close();
                 kon.close();
-                clear_text();
-                btn_simpan.setEnabled(false);
-                btn_ubah.setEnabled(false);
-                btn_hapus.setEnabled(false);
-                btn_batal.setEnabled(false);
-                btn_keluar.setEnabled(true);
-                disable_text();
                 JOptionPane.showMessageDialog(null, "Data Berhasil Dirubah");
             } catch(Exception ex){
                 System.err.println(ex.getMessage());
             }
         }
+        btn_simpan.setEnabled(false);
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
+        disable_text();
+        clear_text();
     }//GEN-LAST:event_btn_ubahActionPerformed
 
     private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-        clear_text();
         txt_no_mk.requestFocus();
+        
         btn_simpan.setEnabled(true);
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_batal.setEnabled(true);
         btn_keluar.setEnabled(false);
         enable_text();
+        clear_text();
     }//GEN-LAST:event_btn_tambahActionPerformed
 
     private void table_mkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_mkMouseClicked
@@ -384,15 +389,15 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_keluar.setEnabled(true);
-        clear_text();
         disable_text();
+        clear_text();
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void txt_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_searchKeyReleased
         String key = txt_search.getText();
         
         if(key!=""){
-            caridata(key);
+            search(key);
         }else{
             settableload();
         }
@@ -400,6 +405,7 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
         String data[]=new String[2];
+        
         if((txt_no_mk.getText().isEmpty()) || (txt_nama_mk.getText().isEmpty())){
             JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong, Silahkan Lengkapi :> ");
             txt_no_mk.requestFocus();
@@ -411,19 +417,20 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
                 String SQL = "INSERT INTO mata_kuliah(no_mk,nama_mk) VALUES "
                         +"( '"+txt_no_mk.getText()+"',"
                         +" '"+txt_nama_mk.getText()+" ')";
+                
                 stt.executeUpdate(SQL);
                 data[0] = txt_no_mk.getText();
                 data[1] = txt_nama_mk.getText();
+                
                 tableModel.insertRow(0, data);
+                
                 stt.close();
                 kon.close();
-               
                 JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
             } catch (Exception ex){
                 JOptionPane.showMessageDialog(null, "Data dengan nomor nim : "+txt_no_mk.getText()+" sudah terdaftar");
             }
         }
-        
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
         btn_keluar.setEnabled(true);
@@ -441,54 +448,26 @@ public class frm_mata_kuliah extends javax.swing.JFrame {
             Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt = kon.createStatement();
             String SQL = "DELETE FROM mata_kuliah "+ "WHERE "+"no_mk='"+tableModel.getValueAt(row, 0).toString()+"'";
-            
             stt.executeUpdate(SQL);
+            
             tableModel.removeRow(row);
+            
             stt.close();
             kon.close();
-            clear_text();
-            btn_ubah.setEnabled(false);
-            btn_hapus.setEnabled(false);
-            btn_batal.setEnabled(false);
-            btn_simpan.setEnabled(false);
-            btn_keluar.setEnabled(true);
-            disable_text();
-            JOptionPane.showMessageDialog(null
-                    , "Data Berhasil Dihapus");
-            
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
         } catch(Exception ex) {
             System.err.println(ex.getMessage());
         } 
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_simpan.setEnabled(false);
+        btn_keluar.setEnabled(true);
+        disable_text();
+        clear_text();
     }//GEN-LAST:event_btn_hapusActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_mata_kuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_mata_kuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_mata_kuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_mata_kuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frm_mata_kuliah().setVisible(true);

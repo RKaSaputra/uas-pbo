@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113;
 import javax.swing.*;
 import java.sql.*;
@@ -13,23 +10,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Roan
- */
 public class frm_mahasiswa extends javax.swing.JFrame {
-
-
-    
-    /**
-     * Creates new form frm_mahasiswa
-     */
-    
     koneksi dbsetting;
     String driver,database,user,pass;
     Object tabel;
+    
     public Date tanggal;
-    public frm_mahasiswa() {
+    public frm_mahasiswa(){
         initComponents();
         
         dbsetting = new koneksi();
@@ -39,29 +26,29 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         pass = dbsetting.SettingPanel("DBPassword");
         tabel_mahasiswa.setModel(tableModel);
         
-        settableload();
-        disable_text();
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
+        disable_text();
+        settableload();
     }
-    
     
     public javax.swing.table.DefaultTableModel tableModel=getDefaultTableModel();
     private javax.swing.table.DefaultTableModel getDefaultTableModel(){
         return new javax.swing.table.DefaultTableModel(
-                new Object[][] {},
-                new String[] {"NIM","Nama Mahasiswa","Tempat Lahir","Tanggal Lahir","Alamat"}
-        ){
+            new Object[][] {},
+            new String[] {"NIM", "Nama Mahasiswa", "Tempat Lahir", "Tanggal Lahir", "Alamat"}
+        )
+        {
             boolean[] canEdit = new boolean[]{
                 false,false,false,false,false
             };
+            
             public boolean isCellEditable(int rowIndex, int columnIndex){
                 return canEdit[columnIndex];
             }
-        };
-                
+        };      
     }
     
     String data[]=new String[5];
@@ -73,6 +60,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
             Statement stt=kon.createStatement();
             String SQL = "select * from mahasiswa";
             ResultSet res = stt.executeQuery(SQL);
+            
             while(res.next()){
                 data[0] = res.getString(1);
                 data[1] = res.getString(2);
@@ -81,6 +69,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
                 data[4] = res.getString(5);
                 tableModel.addRow(data);
             }
+            
             res.close();
             stt.close();
             kon.close();
@@ -99,11 +88,9 @@ public class frm_mahasiswa extends javax.swing.JFrame {
             Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt=kon.createStatement();
             String SQL = "SELECT * from mahasiswa WHERE nim LIKE '%"+key+"%' OR nama LIKE '%"+key+"%' OR tanggal_lahir LIKE '%"+key+"%'  OR tempat_lahir LIKE '%"+key+"%'  OR alamat LIKE '%"+key+"%'";
-            
             ResultSet res = stt.executeQuery(SQL);
             
             while(res.next()){
-                
                 data[0] = res.getString(1);
                 data[1] = res.getString(2);
                 data[2] = res.getString(3);
@@ -121,31 +108,6 @@ public class frm_mahasiswa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
-    }
-    
-    public void clear_text(){
-        
-        txt_nim.setText("");
-        txt_nama.setText("");
-        txt_tgl_lahir.setDate(tanggal);
-        txt_tmp_lahir.setText("");
-        txt_alamat.setText("");
-    }
-    
-    public void disable_text(){
-        txt_nim.setEditable(false);
-        txt_nama.setEditable(false);
-        txt_tgl_lahir.setEnabled(false);
-        txt_tmp_lahir.setEditable(false);
-        txt_alamat.setEditable(false);
-    }
-    
-    public void enable_text(){
-        txt_nim.setEditable(true);
-        txt_nama.setEditable(true);
-        txt_tgl_lahir.setEnabled(true);
-        txt_tmp_lahir.setEditable(true);
-        txt_alamat.setEditable(true);
     }
     
     int row = 0;
@@ -171,14 +133,30 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         enable_text();
     }
     
+    public void enable_text(){
+        txt_nim.setEditable(true);
+        txt_nama.setEditable(true);
+        txt_tgl_lahir.setEnabled(true);
+        txt_tmp_lahir.setEditable(true);
+        txt_alamat.setEditable(true);
+    }
     
+    public void disable_text(){
+        txt_nim.setEditable(false);
+        txt_nama.setEditable(false);
+        txt_tgl_lahir.setEnabled(false);
+        txt_tmp_lahir.setEditable(false);
+        txt_alamat.setEditable(false);
+    }
     
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+    public void clear_text(){
+        txt_nim.setText("");
+        txt_nama.setText("");
+        txt_tgl_lahir.setDate(tanggal);
+        txt_tmp_lahir.setText("");
+        txt_alamat.setText("");
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -521,34 +499,35 @@ public class frm_mahasiswa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_searchActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_searchActionPerformed
 
     private void txt_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_namaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_namaActionPerformed
 
     private void txt_nimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nimActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txt_nimActionPerformed
 
     private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-        // TODO add your handling code here:
-        clear_text();
         txt_nim.requestFocus();
+        
         btn_simpan.setEnabled(true);
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_keluar.setEnabled(false);
         btn_batal.setEnabled(true);
         enable_text();
+        clear_text();
     }//GEN-LAST:event_btn_tambahActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        // TODO add your handling code here:asd
         String data[]=new String[5];
         SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
+        
         String tanggal=String.valueOf(fm.format(txt_tgl_lahir.getDate()));
+        
         if((txt_nim.getText().isEmpty()) || (tanggal.isEmpty()) || (txt_nama.getText().isEmpty() || (txt_tmp_lahir.getText().isEmpty()) || (txt_alamat.getText().isEmpty()))){
             JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong, Silahkan Lengkapi :> ");
             txt_nim.requestFocus();
@@ -573,24 +552,19 @@ public class frm_mahasiswa extends javax.swing.JFrame {
                 
                 stt.close();
                 kon.close();
-                clear_text();
-                disable_text();
-                btn_simpan.setEnabled(false);
-                btn_batal.setEnabled(false);
-                btn_keluar.setEnabled(true);
-                
-                
                 JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
-           
-                
             } catch (Exception ex){
                 JOptionPane.showMessageDialog(null, "Data dengan nomor nim : "+txt_nim.getText()+" sudah terdaftar");
             }
         }
+        btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
+        disable_text();
+        clear_text();                
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void tabel_mahasiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel_mahasiswaMouseClicked
-        // TODO add your handling code here:
         if(evt.getClickCount()==1){
             clear_text();
             fieldshow();
@@ -598,13 +572,12 @@ public class frm_mahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_tabel_mahasiswaMouseClicked
 
     private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
-        // TODO add your handling code here:
         SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
+        
         String tanggal_ubah=String.valueOf(fm.format(txt_tgl_lahir.getDate()));
         String nim = txt_nim.getText();
         String nama = txt_nama.getText();
         String tempat_lahir = txt_tmp_lahir.getText();
-//        String tanggal_lahir = tanggal_ubah;
         String alamat = txt_alamat.getText();
         
         if((nim.isEmpty() | (alamat.isEmpty()))){
@@ -631,25 +604,23 @@ public class frm_mahasiswa extends javax.swing.JFrame {
                 data[4] = alamat;
                 tableModel.removeRow(row);
                 tableModel.insertRow(row, data);
+                
                 stt.close();
                 kon.close();
-                
-                clear_text();
-                disable_text();
-                btn_simpan.setEnabled(false);
-                btn_ubah.setEnabled(false);
-                btn_hapus.setEnabled(false);
-                btn_batal.setEnabled(false);
-                
                 JOptionPane.showMessageDialog(null, "Data Berhasil Dirubah");
             } catch(Exception ex){
                 System.err.println(ex.getMessage());
             }
         }
+        btn_simpan.setEnabled(false);
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+        btn_batal.setEnabled(false);
+        disable_text();
+        clear_text();
     }//GEN-LAST:event_btn_ubahActionPerformed
 
     private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
-        // TODO add your handling code here:
         try{
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database,user,pass);
@@ -659,24 +630,22 @@ public class frm_mahasiswa extends javax.swing.JFrame {
                     +"nim='"+tableModel.getValueAt(row, 0).toString()+"'";
             stt.executeUpdate(SQL);
             tableModel.removeRow(row);
+            
             stt.close();
             kon.close();
-            
-            clear_text();
-            disable_text();
-            btn_ubah.setEnabled(false);
-            btn_hapus.setEnabled(false);
-            btn_batal.setEnabled(false);
-            btn_keluar.setEnabled(true);
             JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-            
         } catch(Exception ex) {
             System.err.println(ex.getMessage());
         } 
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
+        disable_text();
+        clear_text();
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void txt_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_searchKeyReleased
-        // TODO add your handling code here:
         String key = txt_search.getText();
         
         if(key!=""){
@@ -692,8 +661,9 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
         btn_keluar.setEnabled(true);
-        clear_text();
         disable_text();
+        clear_text();
+        
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void txt_namaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_namaKeyTyped
@@ -705,12 +675,10 @@ public class frm_mahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_tmp_lahirKeyTyped
 
     private void txt_tgl_lahirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tgl_lahirKeyTyped
-        // TODO add your handling code here:
         txt_tgl_lahir.setEnabled(false);
     }//GEN-LAST:event_txt_tgl_lahirKeyTyped
 
     private void txt_nimKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nimKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
         
         if(Character.isAlphabetic(c)){
@@ -722,34 +690,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btn_keluarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frm_mahasiswa().setVisible(true);

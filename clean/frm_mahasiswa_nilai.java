@@ -1,4 +1,4 @@
-package kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113;
+ package kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113;
 
 import javax.swing.*;
 import java.sql.*;
@@ -9,16 +9,13 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     koneksi dbsetting;
     String driver,database,user,pass;
     Object table;
-    
-    
-    
-        
+    double nilai_absen;
     
 //    public void nilai_absen(){
-//        nilai_absen = (((jumlah_pertemuan/14)*100*5)/100);
-//        return nilai_absen;
+//        nilai_absen = (((txt_kehadiran/14)*100*5)/100);
+//        return nilai_absen
 //    }
-//    
+    
 //    public void nilai_tugas(){
 //        nilai_tugas = ((tugas1 + tugas2 + tugas3/3)*(25/100));
 //    }
@@ -55,7 +52,6 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     
     public frm_mahasiswa_nilai() {
         initComponents();
-        
         dbsetting = new koneksi();
         driver = dbsetting.SettingPanel("DBDriver");
         database = dbsetting.SettingPanel("DBDatabase");
@@ -63,14 +59,16 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         pass = dbsetting.SettingPanel("DBPassword");
         
         table_mahasiswa_nilai.setModel(tableModel);
+        
         Combo_mahasiswa();
         Combo_matakuliah();
         lebar_column();        
-        nonaktif_teks();
+        
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
+        disabled_text();
         settableload();
     }
    
@@ -103,9 +101,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             public boolean isCellEditable(int rowIndex, int columnIndex){
                 return canEdit[columnIndex];
             }
-            
-        };
-        
+        };        
     }   
     
     String data[]= new String[15];
@@ -113,14 +109,11 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         String stat = "";
         try{
             Class.forName(driver);
-            Connection kon = DriverManager.getConnection(
-                                database,
-                                user,
-                                pass);
-            
+            Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt = kon.createStatement();
             String SQL = "select nama, nama_mk, kehadiran, tugas_1, tugas_2, tugas_3, uts, uas from mahasiswa_nilai";
             ResultSet res = stt.executeQuery(SQL);
+            
             while(res.next()){
                 data[0] = res.getString(1);
                 data[1] = res.getString(2);
@@ -130,6 +123,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                 data[5] = res.getString(6);
                 data[6] = res.getString(7);
                 data[7] = res.getString(8);
+                
                 tableModel.addRow(data);
             }
             res.close();
@@ -138,25 +132,21 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         }
         catch(Exception ex){
             System.err.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null,
-                    ex.getMessage(),"Error",
-                    JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
     }
     
-    private void caridata(String key){
+    private void search(String key){
         tableModel.setRowCount(0);
         try{
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt=kon.createStatement();
             String SQL = "SELECT * from mahasiswa_nilai WHERE nim LIKE '%"+key+"%' OR nama LIKE '%"+key+"%'";
-            
             ResultSet res = stt.executeQuery(SQL);
             
             while(res.next()){
-                
                 data[0] = res.getString(3);
                 data[1] = res.getString(5);
                 data[2] = res.getString(6);
@@ -167,7 +157,6 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                 data[7] = res.getString(11);
                 tableModel.addRow(data);
             }
-            
             res.close();
             stt.close();
             kon.close();
@@ -176,6 +165,38 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             System.err.println(ex.getMessage());
             JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
+        }
+    }
+    
+    int row = 0;
+    public void Combo_mahasiswa(){
+        try{
+            String SQL="select * from Mahasiswa";
+            Connection kon = DriverManager.getConnection(database,user,pass);
+            Statement stt = kon.createStatement();
+            ResultSet res = stt.executeQuery(SQL);
+            
+            while(res.next()){
+                String nama = res.getString("nama");
+                txt_nama.addItem(nama);
+            }
+        } catch (Exception ex){
+            System.err.println(ex.getMessage());
+        }
+    }
+    public void Combo_matakuliah(){
+        try{
+            String SQL="select * from mata_kuliah";
+            Connection kon = DriverManager.getConnection(database,user,pass);
+            Statement stt = kon.createStatement();
+            ResultSet res = stt.executeQuery(SQL);
+            
+            while(res.next()){
+                String nama_mk = res.getString("nama_mk");
+                txt_nama_mk.addItem(nama_mk);
+            }
+        } catch (Exception ex){
+            System.err.println(ex.getMessage());
         }
     }
     
@@ -194,39 +215,10 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         table_mahasiswa_nilai.getColumnModel().getColumn(11).setPreferredWidth(30);
         table_mahasiswa_nilai.getColumnModel().getColumn(12).setPreferredWidth(30);
         table_mahasiswa_nilai.getColumnModel().getColumn(13).setPreferredWidth(30);
-        table_mahasiswa_nilai.getColumnModel().getColumn(14).setPreferredWidth(30);
-        
-        
+        table_mahasiswa_nilai.getColumnModel().getColumn(14).setPreferredWidth(30);  
     }
     
-    public void membersihkan_teks(){
-        txt_nim.setText("");
-        txt_nama.setSelectedIndex(0);
-        txt_kode_mk.setText("");
-        txt_nama_mk.setSelectedIndex(0);
-        txt_kehadiran.setText("");
-        txt_tugas1.setText("");
-        txt_tugas2.setText("");
-        txt_tugas3.setText("");
-        txt_uts.setText("");
-        txt_uas.setText("");
-        txt_angkatan.setText("");
-    }
-    
-    public void nonaktif_teks(){
-        txt_nim.setEnabled(false);
-        txt_nama.setEnabled(false);
-        txt_kode_mk.setEnabled(false);
-        txt_nama_mk.setEnabled(false);
-        txt_kehadiran.setEnabled(false);
-        txt_tugas1.setEnabled(false);
-        txt_tugas2.setEnabled(false);
-        txt_tugas3.setEnabled(false);
-        txt_uts.setEnabled(false);
-        txt_uas.setEnabled(false);
-        txt_angkatan.setEnabled(false);
-    }
-    public void aktif_teks(){
+    public void enabled_text(){
         txt_nim.setEnabled(true);
         txt_nama.setEnabled(true);
         txt_kode_mk.setEnabled(true);
@@ -240,69 +232,32 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         txt_angkatan.setEnabled(true);
     }
     
-    int row = 0;
-    public void tampil_field(){
-        try{
-            String SQL="select * from Mahasiswa_nilai";
-            Connection kon = DriverManager.getConnection(database,user,pass);
-            Statement stt = kon.createStatement();
-            ResultSet res = stt.executeQuery(SQL);
-            String nim = txt_nim.getText();
-            txt_nim.setText(res.getString(nim));
-            
-            
-            
-            
-        }catch (Exception ex){
-            System.err.println(ex.getMessage());
-        }
-        
-//        txt_nama.setText(tableModel.getValueAt(row, 1).toString());
-//        txt_kode_mk.setText(tableModel.getValueAt(row, 2).toString());
-////        txt_nama_mk.setText(tableModel.getValueAt(row, 3).toString());
-//        txt_kehadiran.setText(tableModel.getValueAt(row, 4).toString());
-//        txt_tugas1.setText(tableModel.getValueAt(row, 5).toString());
-//        txt_tugas2.setText(tableModel.getValueAt(row, 6).toString());
-//        txt_tugas3.setText(tableModel.getValueAt(row, 7).toString());
-//        txt_uts.setText(tableModel.getValueAt(row, 8).toString());
-//        txt_uas.setText(tableModel.getValueAt(row, 9).toString());
-//        txt_angkatan.setText(tableModel.getValueAt(row, 10).toString());
-            btn_simpan.setEnabled(false);
-            btn_ubah.setEnabled(true);
-            btn_hapus.setEnabled(true);
-            btn_batal.setEnabled(true);
-            btn_keluar.setEnabled(true);
-            aktif_teks();
-//        
-        
+    public void disabled_text(){
+        txt_nim.setEnabled(false);
+        txt_nama.setEnabled(false);
+        txt_kode_mk.setEnabled(false);
+        txt_nama_mk.setEnabled(false);
+        txt_kehadiran.setEnabled(false);
+        txt_tugas1.setEnabled(false);
+        txt_tugas2.setEnabled(false);
+        txt_tugas3.setEnabled(false);
+        txt_uts.setEnabled(false);
+        txt_uas.setEnabled(false);
+        txt_angkatan.setEnabled(false);
     }
-    public void Combo_mahasiswa(){
-        try{
-            String SQL="select * from Mahasiswa";
-            Connection kon = DriverManager.getConnection(database,user,pass);
-            Statement stt = kon.createStatement();
-            ResultSet res = stt.executeQuery(SQL);
-            while(res.next()){
-                String nama = res.getString("nama");
-                txt_nama.addItem(nama);
-            }
-        }catch (Exception ex){
-            System.err.println(ex.getMessage());
-        }
-    }
-    public void Combo_matakuliah(){
-        try{
-            String SQL="select * from mata_kuliah";
-            Connection kon = DriverManager.getConnection(database,user,pass);
-            Statement stt = kon.createStatement();
-            ResultSet res = stt.executeQuery(SQL);
-            while(res.next()){
-                String nama_mk = res.getString("nama_mk");
-                txt_nama_mk.addItem(nama_mk);
-            }
-        }catch (Exception ex){
-            System.err.println(ex.getMessage());
-        }
+    
+    public void clear_text(){
+        txt_nim.setText("");
+        txt_nama.setSelectedIndex(0);
+        txt_kode_mk.setText("");
+        txt_nama_mk.setSelectedIndex(0);
+        txt_kehadiran.setText("");
+        txt_tugas1.setText("");
+        txt_tugas2.setText("");
+        txt_tugas3.setText("");
+        txt_uts.setText("");
+        txt_uas.setText("");
+        txt_angkatan.setText("");
     }
     
     @SuppressWarnings("unchecked")
@@ -655,18 +610,19 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_namaActionPerformed
 
     private void txt_nama_mkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nama_mkActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_nama_mkActionPerformed
 
     private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-        membersihkan_teks();
         txt_nim.requestFocus();
+        
         btn_simpan.setEnabled(true);
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_keluar.setEnabled(false);
         btn_batal.setEnabled(true);
-        aktif_teks();
+        enabled_text();
+        clear_text();
     }//GEN-LAST:event_btn_tambahActionPerformed
 
     private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
@@ -690,63 +646,75 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                 Class.forName(driver);
                 Connection kon = DriverManager.getConnection(database,user,pass);
                 Statement stt = kon.createStatement();
-                String SQL = "UPDATE 'mahasiswa_nilai'" 
-                            + "SET 'nim' = '"+nim+"'," 
-                            + "'nama' = '"+nama+"',"
-                            + "'no_mk' = '"+kode_mk+"',"
-                            + "'nama_mk' = '"+nama_mk+"',"
-                            + "'kehadiran' = '"+kehadiran+"',"
-                            + "'tugas1' = '"+tugas1+"',"
-                            + "'tugas2' = '"+tugas2+"',"
-                            + "'tugas3' = '"+tugas3+"',"
-                            + "'uts' = '"+uts+"',"
-                            + "'uas' = '"+uas+"',"
-                            + "'angkatan' = '"+angkatan+"' "
-                            + "WHERE "
-                            + "'nim'='"+tableModel.getValueAt(row, 0).toString()+"';";
+                String SQL = "UPDATE `mahasiswa_nilai` "
+                        + "SET `nim` = '"+nim+"', "
+                        + "`nama` = '"+nama+"', "
+                        + "`no_mk` = '"+kode_mk+"', "
+                        + "`nama_mk` = '"+nama_mk+"', "
+                        + "`kehadiran` = '"+kehadiran+"', "
+                        + "`tugas_1` = '"+tugas1+"', "
+                        + "`tugas_2` = '"+tugas2+"', "
+                        + "`tugas_3` = '"+tugas3+"', "
+                        + "`uts` = '"+uts+"', "
+                        + "`uas` = '"+uas+"', "
+                        + "`angkatan` = "+angkatan+""
+                        + " WHERE `mahasiswa_nilai`.`nim` = "+nim+" "
+                        + "AND `mahasiswa_nilai`.`no_mk` = '"+kode_mk+"';";
                 stt.executeUpdate(SQL);
-                data[0] = nim;
-                data[1] = nama;
-                data[2] = kode_mk;
-                data[3] = nama_mk;
-                data[4] = kehadiran;
-                data[5] = tugas1;
-                data[6] = tugas2;
-                data[7] = tugas3;
-                data[8] = uts;
-                data[9] = uas;
-                data[10] = angkatan;
+                data[0] = nama;
+                data[1] = nama_mk;
+                data[2] = kehadiran;
+                data[3] = tugas1;
+                data[4] = tugas2;
+                data[5] = tugas3;
+                data[6] = uts;
+                data[7] = uas;
+                
                 tableModel.removeRow(row);
                 tableModel.insertRow(row, data);
+                
                 stt.close();
                 kon.close();
-                membersihkan_teks();
-                btn_simpan.setEnabled(false);
-                nonaktif_teks();
-            }
-            catch (Exception ex){
+            } catch(Exception ex){
                 System.err.println(ex.getMessage());
             }
         }
+        btn_tambah.setEnabled(true);
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+        btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
+        disabled_text();
+        clear_text();
     }//GEN-LAST:event_btn_ubahActionPerformed
 
     private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
+        String nim = txt_nim.getText();
+        String kode_mk = txt_kode_mk.getText();
+        
         try{
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt = kon.createStatement();
-            String  SQL = "Delete From mahasiswa_nilai "
-                            +"WHERE "
-                            +"id='"+tableModel.getValueAt(row, 0).toString()+"'";
+            String  SQL = "DELETE FROM `mahasiswa_nilai` "
+                        + " WHERE `mahasiswa_nilai`.`nim` = "+nim+" "
+                        + "AND `mahasiswa_nilai`.`no_mk` = '"+kode_mk+"';";
             stt.executeUpdate(SQL);
             tableModel.removeRow(row);
             stt.close();
             kon.close(); 
-            membersihkan_teks();
-        }
-        catch (Exception ex){
+            clear_text();
+        } catch(Exception ex){
             System.err.println(ex.getMessage());
         }
+        btn_tambah.setEnabled(true);
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+        btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
+        disabled_text();
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
@@ -774,6 +742,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                             + " '"+txt_angkatan.getText()+" ')";
                 
                 stt.executeUpdate(SQL);
+                
                 data[0] = txt_nama.getSelectedItem().toString();
                 data[1] = txt_nama_mk.getSelectedItem().toString();
                 data[2] = txt_kehadiran.getText();
@@ -782,32 +751,32 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                 data[5] = txt_tugas3.getText();
                 data[6] = txt_uts.getText();
                 data[7] = txt_uas.getText();
+                
                 tableModel.insertRow(0, data);
                 
                 stt.close();
                 kon.close();
-                membersihkan_teks();
-                btn_simpan.setEnabled(false);
-                btn_batal.setEnabled(false);
-                btn_keluar.setEnabled(true);
-                nonaktif_teks();
-                
                 JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
-            }   
-            catch (Exception ex){
+            } catch(Exception ex){
                 JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             }
         }
+        btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_keluar.setEnabled(true);
+        disabled_text();
+        clear_text();
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-        membersihkan_teks();
-        nonaktif_teks();
+        btn_tambah.setEnabled(true);
         btn_ubah.setEnabled(false);
         btn_hapus.setEnabled(false);
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
         btn_keluar.setEnabled(true);
+        disabled_text();
+        clear_text();
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void btn_keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_keluarActionPerformed
@@ -815,13 +784,67 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_keluarActionPerformed
 
     private void txt_nimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nimActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_nimActionPerformed
 
     private void table_mahasiswa_nilaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_mahasiswa_nilaiMouseClicked
-        if(evt.getClickCount() == 1){
-            tampil_field();
+        int selectedRow = table_mahasiswa_nilai.getSelectedRow();
+        
+        try{
+            String nama =(table_mahasiswa_nilai.getModel().getValueAt(selectedRow,0).toString());
+            
+            Class.forName(driver);
+            Connection kon = DriverManager.getConnection(database,user,pass);
+            Statement stt = kon.createStatement();
+            
+            String SQLnm="select * from mahasiswa_nilai where nama='"+nama+"'";
+            ResultSet res_nm = stt.executeQuery(SQLnm);
+            if(res_nm.next()){
+                String addnim=res_nm.getString("nim");
+                txt_nim.setText(addnim);
+                String addakt=res_nm.getString("angkatan");
+                txt_angkatan.setText(addakt);
+            }
+            
+            String nama_mk=(table_mahasiswa_nilai.getModel().getValueAt(selectedRow,1).toString());
+            String SQLmk="select * from mahasiswa_nilai where nama_mk='"+nama_mk+"'";
+            ResultSet res_mk = stt.executeQuery(SQLmk);
+            if(res_mk.next()){
+                String addmk=res_mk.getString("no_mk");
+                txt_kode_mk.setText(addmk);
+            }
+        } catch(Exception ex){
+            System.err.println(ex.getMessage());
         }
+        
+        String nama = tableModel.getValueAt(selectedRow, 0).toString();
+        for (int i = 0; i < txt_nama.getItemCount(); i++){
+            if(txt_nama.getItemAt(i).toString().equalsIgnoreCase(nama)){
+                txt_nama.setSelectedIndex(i);
+            }
+        }
+        
+        String nama_mk = tableModel.getValueAt(selectedRow, 1).toString();
+        for (int i = 0; i < txt_nama_mk.getItemCount(); i++){
+            if(txt_nama_mk.getItemAt(i).toString().equalsIgnoreCase(nama_mk)){
+                txt_nama_mk.setSelectedIndex(i);
+            }
+        }
+        
+        txt_kehadiran.setText(tableModel.getValueAt(selectedRow, 2).toString());
+        txt_tugas1.setText(tableModel.getValueAt(selectedRow, 3).toString());
+        txt_tugas2.setText(tableModel.getValueAt(selectedRow, 4).toString());
+        txt_tugas3.setText(tableModel.getValueAt(selectedRow, 5).toString());
+        txt_uts.setText(tableModel.getValueAt(selectedRow, 6).toString());
+        txt_uas.setText(tableModel.getValueAt(selectedRow, 7).toString());
+        
+        btn_tambah.setEnabled(false);
+        btn_ubah.setEnabled(true);
+        btn_hapus.setEnabled(true);
+        btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(true);
+        btn_keluar.setEnabled(false);
+        enabled_text();
     }//GEN-LAST:event_table_mahasiswa_nilaiMouseClicked
 
     private void txt_namaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_txt_namaPopupMenuWillBecomeInvisible
@@ -844,12 +867,13 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_namaPopupMenuWillBecomeInvisible
 
     private void btn_batalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_batalMouseClicked
-        membersihkan_teks();
-        nonaktif_teks();
+        disabled_text();
+        clear_text();
     }//GEN-LAST:event_btn_batalMouseClicked
 
     private void txt_nama_mkPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_txt_nama_mkPopupMenuWillBecomeInvisible
         String item = (String)txt_nama_mk.getSelectedItem();
+        
         String SQL = "select no_mk from mata_kuliah where nama_mk='"+item+"'";
         try{
             Class.forName(driver);
@@ -870,45 +894,17 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         String key = txt_search.getText();
         
         if(key!=""){
-            caridata(key);
+            search(key);
         }else{
             settableload();
         }
     }//GEN-LAST:event_txt_searchKeyReleased
 
     private void txt_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_searchActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_searchActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa_nilai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa_nilai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa_nilai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_mahasiswa_nilai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frm_mahasiswa_nilai().setVisible(true);
