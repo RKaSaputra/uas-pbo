@@ -13,11 +13,14 @@ public class Kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113 {
 
 //        frm_mata_kuliah f_mk = new frm_mata_kuliah();
 //        f_mk.setVisible(true);
+
+        frm_simulasi_nilai f_sim = new frm_simulasi_nilai();
+        f_sim.setVisible(true);
         
+//      clear
 //        frm_mahasiswa_nilai f_mhs_nilai = new frm_mahasiswa_nilai();
 //        f_mhs_nilai.setVisible(true);
             
-//        frm_simulasi_nilai f_sim = new frm_simulasi_nilai();
-//        f_sim.setVisible(true);
+
     }
 }

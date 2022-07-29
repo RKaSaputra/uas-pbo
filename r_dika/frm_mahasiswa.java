@@ -1,5 +1,5 @@
-
 package kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113;
+
 import javax.swing.*;
 import java.sql.*;
 import java.text.ParseException;
@@ -14,6 +14,8 @@ public class frm_mahasiswa extends javax.swing.JFrame {
     koneksi dbsetting;
     String driver,database,user,pass;
     Object tabel;
+    
+    
     
     public Date tanggal;
     public frm_mahasiswa(){

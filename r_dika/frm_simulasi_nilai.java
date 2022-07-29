@@ -88,6 +88,14 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 data[8] = res.getString(11);
                 data[9] = res.getString(12);
                 data[10] = res.getString(13);
+                data[11] = res.getString(14);
+                data[12] = res.getString(15);
+                data[13] = res.getString(16);
+                data[14] = res.getString(17);
+                data[15] = res.getString(18);
+                data[16] = res.getString(19);
+                data[17] = res.getString(20);
+                
                 tableModel.addRow(data);
             }
             
@@ -121,6 +129,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 data[5] = res.getString(9);
                 data[6] = res.getString(10);
                 data[7] = res.getString(11);
+                
                 tableModel.addRow(data);
             }
             
@@ -152,21 +161,24 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }
     
     public void lebar_column(){
-        table_simulasi_nilai.getColumnModel().getColumn(0).setPreferredWidth(100);
-        table_simulasi_nilai.getColumnModel().getColumn(1).setPreferredWidth(100);
-        table_simulasi_nilai.getColumnModel().getColumn(2).setPreferredWidth(40);
-        table_simulasi_nilai.getColumnModel().getColumn(3).setPreferredWidth(25);
-        table_simulasi_nilai.getColumnModel().getColumn(4).setPreferredWidth(25);
-        table_simulasi_nilai.getColumnModel().getColumn(5).setPreferredWidth(25);
-        table_simulasi_nilai.getColumnModel().getColumn(6).setPreferredWidth(25);
-        table_simulasi_nilai.getColumnModel().getColumn(7).setPreferredWidth(25);
-        table_simulasi_nilai.getColumnModel().getColumn(8).setPreferredWidth(30);
-        table_simulasi_nilai.getColumnModel().getColumn(9).setPreferredWidth(30);
-        table_simulasi_nilai.getColumnModel().getColumn(10).setPreferredWidth(30);
-        table_simulasi_nilai.getColumnModel().getColumn(11).setPreferredWidth(30);
-        table_simulasi_nilai.getColumnModel().getColumn(12).setPreferredWidth(30);
+        table_simulasi_nilai.getColumnModel().getColumn(0).setPreferredWidth(80);
+        table_simulasi_nilai.getColumnModel().getColumn(1).setPreferredWidth(80);
+        table_simulasi_nilai.getColumnModel().getColumn(2).setPreferredWidth(80);
+        table_simulasi_nilai.getColumnModel().getColumn(3).setPreferredWidth(70);
+        table_simulasi_nilai.getColumnModel().getColumn(4).setPreferredWidth(70);
+        table_simulasi_nilai.getColumnModel().getColumn(5).setPreferredWidth(30);
+        table_simulasi_nilai.getColumnModel().getColumn(6).setPreferredWidth(5);
+        table_simulasi_nilai.getColumnModel().getColumn(7).setPreferredWidth(5);
+        table_simulasi_nilai.getColumnModel().getColumn(8).setPreferredWidth(5);
+        table_simulasi_nilai.getColumnModel().getColumn(9).setPreferredWidth(5);
+        table_simulasi_nilai.getColumnModel().getColumn(10).setPreferredWidth(5);
+        table_simulasi_nilai.getColumnModel().getColumn(11).setPreferredWidth(35);
+        table_simulasi_nilai.getColumnModel().getColumn(12).setPreferredWidth(35);
         table_simulasi_nilai.getColumnModel().getColumn(13).setPreferredWidth(30);
         table_simulasi_nilai.getColumnModel().getColumn(14).setPreferredWidth(30);
+        table_simulasi_nilai.getColumnModel().getColumn(15).setPreferredWidth(30);
+        table_simulasi_nilai.getColumnModel().getColumn(16).setPreferredWidth(5);       
+        table_simulasi_nilai.getColumnModel().getColumn(17).setPreferredWidth(40);
     }
     
     public void enabled_text(){
@@ -264,17 +276,17 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(389, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(495, 495, 495)
                 .addComponent(jLabel1)
-                .addGap(418, 418, 418))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(31, 31, 31))
+                .addGap(36, 36, 36))
         );
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
@@ -462,7 +474,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                                 .addComponent(txt_kehadiran, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(pertemuan)))
-                        .addGap(144, 144, 144)))
+                        .addGap(10, 10, 10)))
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
@@ -471,45 +483,56 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txt_nama_mk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pertemuan)
-                    .addComponent(txt_kehadiran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kehadiran))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txt_kode_mk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tugas1)
-                    .addComponent(txt_tugas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_p_absen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(tugas2)
-                    .addComponent(txt_tugas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_p_tugas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(tugas3)
-                    .addComponent(txt_tugas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_p_uts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_uts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(uts)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel10)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_p_uas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(uas)))
-                    .addComponent(txt_uas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5)
+                            .addComponent(txt_nama_mk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(txt_kode_mk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_p_absen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_p_tugas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
+                            .addComponent(txt_p_uts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10)
+                            .addComponent(txt_p_uas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pertemuan)
+                            .addComponent(txt_kehadiran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(kehadiran))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tugas1)
+                            .addComponent(txt_tugas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tugas2)
+                            .addComponent(txt_tugas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tugas3)
+                            .addComponent(txt_tugas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_uts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(uts))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(uas)
+                            .addComponent(txt_uas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -531,7 +554,6 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nama_mkActionPerformed
 
     private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-        clear_text();
         txt_kode_mk.requestFocus();
         btn_simpan.setEnabled(true);
         btn_ubah.setEnabled(false);
@@ -539,6 +561,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         btn_keluar.setEnabled(false);
         btn_batal.setEnabled(true);
         enabled_text();
+        clear_text();
     }//GEN-LAST:event_btn_tambahActionPerformed
 
     private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
@@ -554,6 +577,49 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         String tugas3 = txt_tugas3.getText();
         String uts = txt_uts.getText();
         String uas = txt_uas.getText();
+        
+        int selectedRow = table_simulasi_nilai.getSelectedRow();
+        
+        int P_absen = Integer.parseInt(txt_p_absen.getText());
+        int P_tugas = Integer.parseInt(txt_p_tugas.getText());
+        int P_uts = Integer.parseInt(txt_p_uts.getText());
+        int P_uas = Integer.parseInt(txt_p_uas.getText());
+        
+        int I_kehadiran = Integer.parseInt(txt_kehadiran.getText());
+        int I_tugas1 = Integer.parseInt(txt_tugas1.getText());
+        int I_tugas2 = Integer.parseInt(txt_tugas2.getText());
+        int I_tugas3 = Integer.parseInt(txt_tugas3.getText());
+        int I_uts = Integer.parseInt(txt_uts.getText());
+        int I_uas = Integer.parseInt(txt_uas.getText());
+        
+        double n_absen = ((I_kehadiran/14)*100*(P_absen/100))/100;
+        double n_tugas = (((I_tugas1+I_tugas2+I_tugas3)/3)*(P_tugas/100)/100);
+        double n_uts =  I_uts*(P_uts/100);
+        double n_uas = I_uas*(P_uas/100);
+        double n_akhir = n_absen+n_tugas+n_uts+n_uas;
+        
+        String index = "";
+        
+        if(n_akhir>=80){
+            index = "A";
+        } else if(n_akhir>=68 && n_akhir<=79){
+            index = "B";
+        } else if(n_akhir>=56 && n_akhir<=67){
+            index = "C";
+        } else if(n_akhir>=45 && n_akhir<=55){
+            index = "D";
+        } else {
+            index = "E";
+        }
+        
+        String ket = " ";
+        if(I_kehadiran<11){
+            ket = "TIDAK LULUS";
+        }else if (index == "A" || index == "B" || index == "C"){
+            ket = "LULUS";
+        } else if(index == "D" || index == "E" ){
+            ket = "TIDAK LULUS";
+        } 
         
         if((kode_mk.isEmpty()) | (nama_mk.isEmpty())){
             JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
@@ -575,7 +641,14 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                         + "`tugas_2` = '"+tugas2+"', "
                         + "`tugas_3` = '"+tugas3+"', "
                         + "`uts` = '"+uts+"', "
-                        + "`uas` = "+uas+""
+                        + "`uas` = "+uas+","
+                        + "`nilai_absen` = '"+String.format("%.2f",n_absen)+"', "
+                        + "`nilai_tugas` = '"+String.format("%.2f",n_tugas)+"', "
+                        + "`nilai_uts` = '"+String.format("%.2f",n_uts)+"', "
+                        + "`nilai_uas` = '"+String.format("%.2f",n_uas)+"', "
+                        + "`nilai_akhir` = '"+String.format("%.2f",n_akhir)+"', "
+                        + "`index` = '"+index+"', "
+                        + "`keterangan` = '"+ket+"'"
                         + " WHERE `no_mk` = '"+kode_mk+"';";
                 
                 stt.executeUpdate(SQL);
@@ -590,27 +663,35 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 data[8] = tugas3;
                 data[9] = uts;
                 data[10] = uas;
+                data[11] = String.format("%.2f",n_absen);
+                data[12] = String.format("%.2f",n_tugas);
+                data[13] = String.format("%.2f",n_uts);
+                data[14] = String.format("%.2f",n_uas);
+                data[15] = String.format("%.2f",n_akhir);
+                data[16] = String.valueOf(index);
+                data[17] = String.valueOf(ket);
                 
-                tableModel.removeRow(row);
-                tableModel.insertRow(row, data);
+                tableModel.removeRow(selectedRow);
+                tableModel.insertRow(selectedRow, data);
                 
+                btn_tambah.setEnabled(true);
+                btn_ubah.setEnabled(false);
+                btn_hapus.setEnabled(false);
+                btn_simpan.setEnabled(false);
+                btn_batal.setEnabled(false);
+                btn_keluar.setEnabled(true);
+                disabled_text();
+                clear_text();
                 stt.close();
                 kon.close();
             } catch(Exception ex){
                 System.err.println(ex.getMessage());
             }
         }
-        btn_tambah.setEnabled(true);
-        btn_ubah.setEnabled(false);
-        btn_hapus.setEnabled(false);
-        btn_simpan.setEnabled(false);
-        btn_batal.setEnabled(false);
-        btn_keluar.setEnabled(true);
-        disabled_text();
-        clear_text();
     }//GEN-LAST:event_btn_ubahActionPerformed
 
     private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
+        int selectedRow = table_simulasi_nilai.getSelectedRow();
         String kode_mk = txt_kode_mk.getText();
         
         try{
@@ -621,25 +702,69 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                         + " WHERE `no_mk` = '"+kode_mk+"';";
             stt.executeUpdate(SQL);
             
-            tableModel.removeRow(row);
+            tableModel.removeRow(selectedRow);
             
+            btn_tambah.setEnabled(true);
+            btn_ubah.setEnabled(false);
+            btn_hapus.setEnabled(false);
+            btn_simpan.setEnabled(false);
+            btn_batal.setEnabled(false);
+            btn_keluar.setEnabled(true);
+            disabled_text();
+            clear_text();
             stt.close();
             kon.close();
         } catch(Exception ex){
             System.err.println(ex.getMessage());
         }
-        btn_tambah.setEnabled(true);
-        btn_ubah.setEnabled(false);
-        btn_hapus.setEnabled(false);
-        btn_simpan.setEnabled(false);
-        btn_batal.setEnabled(false);
-        btn_keluar.setEnabled(true);
-        disabled_text();
-        clear_text();
+        
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        String data[]=new String[12];
+        String data[]=new String[18];
+        
+        int selectedRow = table_simulasi_nilai.getSelectedRow();
+        
+        int P_absen = Integer.parseInt(txt_p_absen.getText());
+        int P_tugas = Integer.parseInt(txt_p_tugas.getText());
+        int P_uts = Integer.parseInt(txt_p_uts.getText());
+        int P_uas = Integer.parseInt(txt_p_uas.getText());
+        
+        int I_kehadiran = Integer.parseInt(txt_kehadiran.getText());
+        int I_tugas1 = Integer.parseInt(txt_tugas1.getText());
+        int I_tugas2 = Integer.parseInt(txt_tugas2.getText());
+        int I_tugas3 = Integer.parseInt(txt_tugas3.getText());
+        int I_uts = Integer.parseInt(txt_uts.getText());
+        int I_uas = Integer.parseInt(txt_uas.getText());
+        
+        double n_absen = (((I_kehadiran/14)*100*(P_absen/100))/100);
+        double n_tugas = (((I_tugas1+I_tugas2+I_tugas3)/3)*((P_tugas/100)/100));
+        double n_uts =  I_uts*(P_uts/100);
+        double n_uas = I_uas*(P_uas/100);
+        double n_akhir = n_absen+n_tugas+n_uts+n_uas;
+        
+        String index = "";
+        
+        if(n_akhir>=80){
+            index = "A";
+        } else if(n_akhir>=68 && n_akhir<=79){
+            index = "B";
+        } else if(n_akhir>=56 && n_akhir<=67){
+            index = "C";
+        } else if(n_akhir>=45 && n_akhir<=55){
+            index = "D";
+        } else {
+            index = "E";
+        }
+        
+        String ket = " ";
+        if(I_kehadiran<11){
+            ket = "TIDAK LULUS";
+        }else if (index == "A" || index == "B" || index == "C"){
+            ket = "LULUS";
+        } else if(index == "D" || index == "E" ){
+            ket = "TIDAK LULUS";
+        }
         
         if ((txt_tugas1.getText().isEmpty()) || (txt_kode_mk.getText().isEmpty())){
             JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
@@ -649,7 +774,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 Class.forName(driver);
                 Connection kon = DriverManager.getConnection(database,user,pass);
                 Statement stt = kon.createStatement();
-                String SQL = "INSERT INTO simulasi_nilai(no_mk,nama_mk,persentase_absen, persentase_tugas, persentase_uts, persentase_uas,kehadiran,tugas_1,tugas_2,tugas_3,uts,uas) VALUES "
+                String SQL = "INSERT INTO simulasi_nilai(`no_mk`, `nama_mk`, `persentase_absen`, `persentase_tugas`, `persentase_uts`, `persentase_uas`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`, `nilai_absen`, `nilai_tugas`, `nilai_uts`, `nilai_uas`, `nilai_akhir`, `index`, `keterangan`) VALUES "
                             + "( '"+txt_kode_mk.getText()+"',"
                             + " '"+txt_nama_mk.getSelectedItem().toString()+"',"
                             + " '"+txt_p_absen.getText()+"',"
@@ -661,7 +786,14 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                             + " '"+txt_tugas2.getText()+"',"
                             + " '"+txt_tugas3.getText()+"',"
                             + " '"+txt_uts.getText()+"',"
-                            + " '"+txt_uas.getText()+"')";
+                            + " '"+txt_uas.getText()+"',"
+                            + " '"+String.format("%.2f",n_absen)+"',"
+                            + " '"+String.format("%.2f",n_tugas)+"',"
+                            + " '"+String.format("%.2f",n_uts)+"',"
+                            + " '"+String.format("%.2f",n_uas)+"',"
+                            + " '"+String.format("%.2f",n_akhir)+"',"
+                            + " '"+index+"',"
+                            + " '"+ket+"');";
                 
                 stt.executeUpdate(SQL);
                 data[0] = txt_nama_mk.getSelectedItem().toString();
@@ -675,9 +807,21 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 data[8] = txt_tugas3.getText();
                 data[9] = txt_uts.getText();
                 data[10] = txt_uas.getText();
+                data[11] = String.format("%.2f",n_absen);
+                data[12] = String.format("%.2f",n_tugas);
+                data[13] = String.format("%.2f",n_uts);
+                data[14] = String.format("%.2f",n_uas);
+                data[15] = String.format("%.2f",n_akhir);
+                data[16] = String.valueOf(index);
+                data[17] = String.valueOf(ket);
                 
                 tableModel.insertRow(0, data);
                 
+                btn_simpan.setEnabled(false);
+                btn_batal.setEnabled(false);
+                btn_keluar.setEnabled(true);
+                disabled_text();
+                clear_text();
                 stt.close();
                 kon.close();
                 JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
@@ -685,11 +829,6 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        btn_simpan.setEnabled(false);
-        btn_batal.setEnabled(false);
-        btn_keluar.setEnabled(true);
-        disabled_text();
-        clear_text();
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed

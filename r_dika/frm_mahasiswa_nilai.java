@@ -9,46 +9,6 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     koneksi dbsetting;
     String driver,database,user,pass;
     Object table;
-    double nilai_absen;
-    
-//    public void nilai_absen(){
-//        nilai_absen = (((txt_kehadiran/14)*100*5)/100);
-//        return nilai_absen
-//    }
-    
-//    public void nilai_tugas(){
-//        nilai_tugas = ((tugas1 + tugas2 + tugas3/3)*(25/100));
-//    }
-//    
-//    public void nilai_uts(){
-//        nilai_uts = uts*(30/100);
-//    }
-//    
-//    public void nilai_uas(){
-//        nilai_uas = uas*(30/100);
-//    }
-//    
-//    public void nilai_akhir(){
-//        nilai_akhir = nilai_absen + nilai_tugas + nilai_uts + nilai_uas;
-//    }
-//    
-//    public void index(){
-//        if(nilai_akhir > 80){
-//            index = A;
-//        }else if(nilai_akhir ){
-//            
-//        }
-//    }
-//    
-//    public void keterangan(){
-//        if(index = A) OR (index = B) OR (index = C){
-//        keterangan = "lulus";
-//        } else if(index = D) OR (index = E){
-//        keterangan = "Tidak Lulus";
-//        } else if(absensi < 11){
-//        keterangan = "Tidak Lulus";        
-//        }
-//    }
     
     public frm_mahasiswa_nilai() {
         initComponents();
@@ -111,18 +71,25 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt = kon.createStatement();
-            String SQL = "select nama, nama_mk, kehadiran, tugas_1, tugas_2, tugas_3, uts, uas from mahasiswa_nilai";
+            String SQL = "select * from mahasiswa_nilai";
             ResultSet res = stt.executeQuery(SQL);
             
             while(res.next()){
-                data[0] = res.getString(1);
-                data[1] = res.getString(2);
-                data[2] = res.getString(3);
-                data[3] = res.getString(4);
-                data[4] = res.getString(5);
-                data[5] = res.getString(6);
-                data[6] = res.getString(7);
-                data[7] = res.getString(8);
+                data[0] = res.getString(3);
+                data[1] = res.getString(5);
+                data[2] = res.getString(6);
+                data[3] = res.getString(7);
+                data[4] = res.getString(8);
+                data[5] = res.getString(9);
+                data[6] = res.getString(10);
+                data[7] = res.getString(11);
+                data[8] = res.getString(13);
+                data[9] = res.getString(14);
+                data[10] = res.getString(15);
+                data[11] = res.getString(16);
+                data[12] = res.getString(17);
+                data[13] = res.getString(18);
+                data[14] = res.getString(19);
                 
                 tableModel.addRow(data);
             }
@@ -155,6 +122,13 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                 data[5] = res.getString(9);
                 data[6] = res.getString(10);
                 data[7] = res.getString(11);
+                data[8] = res.getString(13);
+                data[9] = res.getString(14);
+                data[10] = res.getString(15);
+                data[11] = res.getString(16);
+                data[12] = res.getString(17);
+                data[13] = res.getString(18);
+                data[14] = res.getString(19);
                 tableModel.addRow(data);
             }
             res.close();
@@ -184,6 +158,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             System.err.println(ex.getMessage());
         }
     }
+    
     public void Combo_matakuliah(){
         try{
             String SQL="select * from mata_kuliah";
@@ -201,8 +176,8 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     }
     
     public void lebar_column(){
-        table_mahasiswa_nilai.getColumnModel().getColumn(0).setPreferredWidth(100);
-        table_mahasiswa_nilai.getColumnModel().getColumn(1).setPreferredWidth(100);
+        table_mahasiswa_nilai.getColumnModel().getColumn(0).setPreferredWidth(80);
+        table_mahasiswa_nilai.getColumnModel().getColumn(1).setPreferredWidth(80);
         table_mahasiswa_nilai.getColumnModel().getColumn(2).setPreferredWidth(40);
         table_mahasiswa_nilai.getColumnModel().getColumn(3).setPreferredWidth(25);
         table_mahasiswa_nilai.getColumnModel().getColumn(4).setPreferredWidth(25);
@@ -214,14 +189,14 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         table_mahasiswa_nilai.getColumnModel().getColumn(10).setPreferredWidth(30);
         table_mahasiswa_nilai.getColumnModel().getColumn(11).setPreferredWidth(30);
         table_mahasiswa_nilai.getColumnModel().getColumn(12).setPreferredWidth(30);
-        table_mahasiswa_nilai.getColumnModel().getColumn(13).setPreferredWidth(30);
-        table_mahasiswa_nilai.getColumnModel().getColumn(14).setPreferredWidth(30);  
+        table_mahasiswa_nilai.getColumnModel().getColumn(13).setPreferredWidth(10);
+        table_mahasiswa_nilai.getColumnModel().getColumn(14).setPreferredWidth(50);  
     }
     
     public void enabled_text(){
-        txt_nim.setEnabled(true);
+        txt_nim.setEnabled(false);
         txt_nama.setEnabled(true);
-        txt_kode_mk.setEnabled(true);
+        txt_no_mk.setEnabled(false);
         txt_nama_mk.setEnabled(true);
         txt_kehadiran.setEnabled(true);
         txt_tugas1.setEnabled(true);
@@ -229,13 +204,13 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         txt_tugas3.setEnabled(true);
         txt_uts.setEnabled(true);
         txt_uas.setEnabled(true);
-        txt_angkatan.setEnabled(true);
+        txt_angkatan.setEnabled(false);
     }
     
     public void disabled_text(){
         txt_nim.setEnabled(false);
         txt_nama.setEnabled(false);
-        txt_kode_mk.setEnabled(false);
+        txt_no_mk.setEnabled(false);
         txt_nama_mk.setEnabled(false);
         txt_kehadiran.setEnabled(false);
         txt_tugas1.setEnabled(false);
@@ -249,7 +224,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     public void clear_text(){
         txt_nim.setText("");
         txt_nama.setSelectedIndex(0);
-        txt_kode_mk.setText("");
+        txt_no_mk.setText("");
         txt_nama_mk.setSelectedIndex(0);
         txt_kehadiran.setText("");
         txt_tugas1.setText("");
@@ -257,7 +232,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         txt_tugas3.setText("");
         txt_uts.setText("");
         txt_uas.setText("");
-        txt_angkatan.setText("");
+        txt_angkatan.setText("2021");
     }
     
     @SuppressWarnings("unchecked")
@@ -283,7 +258,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         txt_tugas1 = new javax.swing.JTextField();
         txt_tugas2 = new javax.swing.JTextField();
         txt_tugas3 = new javax.swing.JTextField();
-        txt_kode_mk = new javax.swing.JTextField();
+        txt_no_mk = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -312,14 +287,14 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(418, 418, 418))
+                .addGap(461, 461, 461))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(31, 31, 31))
+                .addGap(30, 30, 30))
         );
 
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
@@ -398,6 +373,30 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             }
         });
 
+        txt_kehadiran.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_kehadiranKeyTyped(evt);
+            }
+        });
+
+        txt_tugas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_tugas1KeyTyped(evt);
+            }
+        });
+
+        txt_tugas2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_tugas2KeyTyped(evt);
+            }
+        });
+
+        txt_tugas3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_tugas3KeyTyped(evt);
+            }
+        });
+
         jLabel12.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel12.setText("UTS");
 
@@ -406,6 +405,18 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel14.setText("UAS");
+
+        txt_uts.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_utsKeyTyped(evt);
+            }
+        });
+
+        txt_uas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_uasKeyTyped(evt);
+            }
+        });
 
         table_mahasiswa_nilai.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         table_mahasiswa_nilai.setModel(new javax.swing.table.DefaultTableModel(
@@ -479,6 +490,12 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             }
         });
 
+        txt_angkatan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_angkatanKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -518,7 +535,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                             .addComponent(txt_kehadiran, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_tugas1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_tugas2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 530, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 616, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
@@ -530,7 +547,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                             .addComponent(txt_uas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_uts, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_nama_mk, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_kode_mk, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_no_mk, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_angkatan, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(50, 50, 50))
         );
@@ -572,7 +589,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(txt_kode_mk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_no_mk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
@@ -628,7 +645,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
         String nim = txt_nim.getText();
         String nama = txt_nama.getSelectedItem().toString();
-        String kode_mk = txt_kode_mk.getText();
+        String kode_mk = txt_no_mk.getText();
         String nama_mk = txt_nama_mk.getSelectedItem().toString();
         String kehadiran = txt_kehadiran.getText();
         String tugas1 = txt_tugas1.getText();
@@ -637,6 +654,44 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         String uts = txt_uts.getText();
         String uas = txt_uas.getText();
         String angkatan = txt_angkatan.getText();
+        
+        int selectedRow = table_mahasiswa_nilai.getSelectedRow();
+        
+        int I_kehadiran = Integer.parseInt(txt_kehadiran.getText());
+        int I_tugas1 = Integer.parseInt(txt_tugas1.getText());
+        int I_tugas2 = Integer.parseInt(txt_tugas2.getText());
+        int I_tugas3 = Integer.parseInt(txt_tugas3.getText());
+        int I_uts = Integer.parseInt(txt_uts.getText());
+        int I_uas = Integer.parseInt(txt_uas.getText());
+        
+        double n_absen = ((I_kehadiran/14)*100*5)/100;
+        double n_tugas = (((I_tugas1+I_tugas2+I_tugas3)/3)*0.25);
+        double n_uts =  I_uts*0.30;
+        double n_uas = I_uas*0.40;
+        double n_akhir = n_absen+n_tugas+n_uts+n_uas;
+        
+        String index = "";
+        
+        if(n_akhir>=80){
+            index = "A";
+        } else if(n_akhir>=68 && n_akhir<=79){
+            index = "B";
+        } else if(n_akhir>=56 && n_akhir<=67){
+            index = "C";
+        } else if(n_akhir>=45 && n_akhir<=55){
+            index = "D";
+        } else {
+            index = "E";
+        } 
+        
+        String ket = "";
+        if(I_kehadiran<11){
+            ket = "TIDAK LULUS";
+        }else if (index == "A" || index == "B" || index == "C"){
+            ket = "LULUS";
+        } else if(index == "D" || index == "E" ){
+            ket = "TIDAK LULUS";
+        } 
         
         if((nim.isEmpty()) | (kode_mk.isEmpty())){
             JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
@@ -657,7 +712,14 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                         + "`tugas_3` = '"+tugas3+"', "
                         + "`uts` = '"+uts+"', "
                         + "`uas` = '"+uas+"', "
-                        + "`angkatan` = "+angkatan+""
+                        + "`angkatan` = '"+angkatan+"', "
+                        + "`nilai_absen` = '"+String.format("%.2f",n_absen)+"', "
+                        + "`nilai_tugas` = '"+String.format("%.2f",n_tugas)+"', "
+                        + "`nilai_uts` = '"+String.format("%.2f",n_uts)+"', "
+                        + "`nilai_uas` = '"+String.format("%.2f",n_uas)+"', "
+                        + "`nilai_akhir` = '"+String.format("%.2f",n_akhir)+"', "
+                        + "`index` = '"+index+"', "
+                        + "`keterangan` = '"+ket+"'"
                         + " WHERE `mahasiswa_nilai`.`nim` = "+nim+" "
                         + "AND `mahasiswa_nilai`.`no_mk` = '"+kode_mk+"';";
                 stt.executeUpdate(SQL);
@@ -669,29 +731,39 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                 data[5] = tugas3;
                 data[6] = uts;
                 data[7] = uas;
+                data[8] = String.format("%.2f",n_absen);
+                data[9] = String.format("%.2f",n_tugas);
+                data[10] = String.format("%.2f",n_uts);
+                data[11] = String.format("%.2f",n_uas);
+                data[12] = String.format("%.2f",n_akhir);
+                data[13] = String.valueOf(index);
+                data[14] = String.valueOf(ket);
                 
-                tableModel.removeRow(row);
-                tableModel.insertRow(row, data);
+                tableModel.removeRow(selectedRow);
+                tableModel.insertRow(selectedRow, data);
                 
+                btn_tambah.setEnabled(true);
+                btn_ubah.setEnabled(false);
+                btn_hapus.setEnabled(false);
+                btn_simpan.setEnabled(false);
+                btn_batal.setEnabled(false);
+                btn_keluar.setEnabled(true);
+                disabled_text();
+                clear_text();
                 stt.close();
                 kon.close();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
             } catch(Exception ex){
                 System.err.println(ex.getMessage());
             }
         }
-        btn_tambah.setEnabled(true);
-        btn_ubah.setEnabled(false);
-        btn_hapus.setEnabled(false);
-        btn_simpan.setEnabled(false);
-        btn_batal.setEnabled(false);
-        btn_keluar.setEnabled(true);
-        disabled_text();
-        clear_text();
     }//GEN-LAST:event_btn_ubahActionPerformed
 
     private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
+        int selectedRow = table_mahasiswa_nilai.getSelectedRow();
+
         String nim = txt_nim.getText();
-        String kode_mk = txt_kode_mk.getText();
+        String kode_mk = txt_no_mk.getText();
         
         try{
             Class.forName(driver);
@@ -700,72 +772,130 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             String  SQL = "DELETE FROM `mahasiswa_nilai` "
                         + " WHERE `mahasiswa_nilai`.`nim` = "+nim+" "
                         + "AND `mahasiswa_nilai`.`no_mk` = '"+kode_mk+"';";
+            
             stt.executeUpdate(SQL);
-            tableModel.removeRow(row);
+            tableModel.removeRow(selectedRow);
+            
+            btn_tambah.setEnabled(true);
+            btn_ubah.setEnabled(false);
+            btn_hapus.setEnabled(false);
+            btn_simpan.setEnabled(false);
+            btn_batal.setEnabled(false);
+            btn_keluar.setEnabled(true);
+            disabled_text();
+            clear_text();
             stt.close();
             kon.close(); 
-            clear_text();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
         } catch(Exception ex){
             System.err.println(ex.getMessage());
         }
-        btn_tambah.setEnabled(true);
-        btn_ubah.setEnabled(false);
-        btn_hapus.setEnabled(false);
-        btn_simpan.setEnabled(false);
-        btn_batal.setEnabled(false);
-        btn_keluar.setEnabled(true);
-        disabled_text();
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        String data[]=new String[11];
+        String data[]=new String[15];
         
-        if ((txt_nim.getText().isEmpty()) || (txt_kode_mk.getText().isEmpty())){
+        int kehadiran = Integer.parseInt(txt_kehadiran.getText());
+        int tugas1 = Integer.parseInt(txt_tugas1.getText());
+        int tugas2 = Integer.parseInt(txt_tugas2.getText());
+        int tugas3 = Integer.parseInt(txt_tugas3.getText());
+        int uts = Integer.parseInt(txt_uts.getText());
+        int uas = Integer.parseInt(txt_uas.getText());
+        
+        double n_absen = ((kehadiran/14)*100*5)/100;
+        double n_tugas = (((tugas1+tugas2+tugas3)/3)*0.25);
+        double n_uts =  uts*0.30;
+        double n_uas = uas*0.40;
+        double n_akhir = n_absen+n_tugas+n_uts+n_uas;
+        
+        String index = "";
+        
+        if(n_akhir>80){
+            index = "A";
+        } else if(n_akhir>68 && n_akhir<79){
+            index = "B";
+        } else if(n_akhir>56 && n_akhir<67){
+            index = "C";
+        } else if(n_akhir>45 && n_akhir<55){
+            index = "D";
+        } else {
+            index = "E";
+        } 
+        
+        String ket = "";
+        if(kehadiran<11){
+            ket = "TIDAK LULUS";
+        }else if (index == "A" || index == "B" || index == "C"){
+            ket = "LULUS";
+        } else if(index == "D" || index == "E" ){
+            ket = "TIDAK LULUS";
+        } 
+        
+        if ((txt_nim.getText().isEmpty()) || (txt_no_mk.getText().isEmpty()) || (txt_kehadiran.getText().isEmpty()) || (txt_tugas1.getText().isEmpty()) || (txt_tugas2.getText().isEmpty()) || (txt_tugas3.getText().isEmpty()) || (txt_uts.getText().isEmpty()) || (txt_uas.getText().isEmpty())){
             JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
             txt_nim.requestFocus();
         }else{
-            try{
-                Class.forName(driver);
-                Connection kon = DriverManager.getConnection(database,user,pass);
-                Statement stt = kon.createStatement();
-                String SQL = "INSERT INTO mahasiswa_nilai(nim,nama,no_mk,nama_mk,kehadiran,tugas_1,tugas_2,tugas_3,uts,uas,angkatan) VALUES "
-                            + "( '"+txt_nim.getText()+"',"
-                            + " '"+txt_nama.getSelectedItem().toString()+"',"
-                            + " '"+txt_kode_mk.getText()+"',"
-                            + " '"+txt_nama_mk.getSelectedItem().toString()+"',"
-                            + " '"+txt_kehadiran.getText()+"',"
-                            + " '"+txt_tugas1.getText()+"',"
-                            + " '"+txt_tugas2.getText()+"',"
-                            + " '"+txt_tugas3.getText()+"',"
-                            + " '"+txt_uts.getText()+"',"
-                            + " '"+txt_uas.getText()+"',"
-                            + " '"+txt_angkatan.getText()+" ')";
-                
-                stt.executeUpdate(SQL);
-                
-                data[0] = txt_nama.getSelectedItem().toString();
-                data[1] = txt_nama_mk.getSelectedItem().toString();
-                data[2] = txt_kehadiran.getText();
-                data[3] = txt_tugas1.getText();
-                data[4] = txt_tugas2.getText();
-                data[5] = txt_tugas3.getText();
-                data[6] = txt_uts.getText();
-                data[7] = txt_uas.getText();
-                
-                tableModel.insertRow(0, data);
-                
-                stt.close();
-                kon.close();
-                JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
-            } catch(Exception ex){
-                JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+            if((kehadiran > 14) || (tugas1 > 100) || (tugas2 > 100) || (tugas3 > 100) || (uts > 100)  || (uas > 100)){
+                JOptionPane.showMessageDialog(null, "Kehadiran Maksimal 14, nilai maksimal 100");
+            }else {
+                try{
+                    Class.forName(driver);
+                    Connection kon = DriverManager.getConnection(database,user,pass);
+                    Statement stt = kon.createStatement();
+                    String SQL = "INSERT INTO mahasiswa_nilai(`nim`, `nama`, `no_mk`, `nama_mk`, `kehadiran`, `tugas_1`, `tugas_2`, `tugas_3`, `uts`, `uas`, `angkatan`, `nilai_absen`, `nilai_tugas`, `nilai_uts`, `nilai_uas`, `nilai_akhir`, `index`, `keterangan`) VALUES "                        
+                                + "('"+txt_nim.getText()+"',"
+                                + " '"+txt_nama.getSelectedItem().toString()+"',"
+                                + " '"+txt_no_mk.getText()+"',"
+                                + " '"+txt_nama_mk.getSelectedItem().toString()+"',"
+                                + " '"+txt_kehadiran.getText()+"',"
+                                + " '"+txt_tugas1.getText()+"',"
+                                + " '"+txt_tugas2.getText()+"',"
+                                + " '"+txt_tugas3.getText()+"',"
+                                + " '"+txt_uts.getText()+"',"
+                                + " '"+txt_uas.getText()+"',"
+                                + " '"+txt_angkatan.getText()+"',"
+                                + " '"+String.format("%.2f",n_absen)+"',"
+                                + " '"+String.format("%.2f",n_tugas)+"',"
+                                + " '"+String.format("%.2f",n_uts)+"',"
+                                + " '"+String.format("%.2f",n_uas)+"',"
+                                + " '"+String.format("%.2f",n_akhir)+"',"
+                                + " '"+index+"',"
+                                + " '"+ket+"');";
+
+                    stt.executeUpdate(SQL);
+
+                    data[0] = txt_nama.getSelectedItem().toString();
+                    data[1] = txt_nama_mk.getSelectedItem().toString();
+                    data[2] = txt_kehadiran.getText();
+                    data[3] = txt_tugas1.getText();
+                    data[4] = txt_tugas2.getText();
+                    data[5] = txt_tugas3.getText();
+                    data[6] = txt_uts.getText();
+                    data[7] = txt_uas.getText();
+                    data[8] = String.format("%.2f",n_absen);
+                    data[9] = String.format("%.2f",n_tugas);
+                    data[10] = String.format("%.2f",n_uts);
+                    data[11] = String.format("%.2f",n_uas);
+                    data[12] = String.format("%.2f",n_akhir);
+                    data[13] = String.valueOf(index);
+                    data[14] = String.valueOf(ket);
+
+                    tableModel.insertRow(row, data);
+
+                    btn_simpan.setEnabled(false);
+                    btn_batal.setEnabled(false);
+                    btn_keluar.setEnabled(true);
+                    disabled_text();
+                    clear_text();
+                    stt.close();
+                    kon.close();
+                    
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
+                } catch(Exception ex){
+                    JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         }
-        btn_simpan.setEnabled(false);
-        btn_batal.setEnabled(false);
-        btn_keluar.setEnabled(true);
-        disabled_text();
-        clear_text();
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
@@ -811,7 +941,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             ResultSet res_mk = stt.executeQuery(SQLmk);
             if(res_mk.next()){
                 String addmk=res_mk.getString("no_mk");
-                txt_kode_mk.setText(addmk);
+                txt_no_mk.setText(addmk);
             }
         } catch(Exception ex){
             System.err.println(ex.getMessage());
@@ -836,8 +966,8 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         txt_tugas2.setText(tableModel.getValueAt(selectedRow, 4).toString());
         txt_tugas3.setText(tableModel.getValueAt(selectedRow, 5).toString());
         txt_uts.setText(tableModel.getValueAt(selectedRow, 6).toString());
-        txt_uas.setText(tableModel.getValueAt(selectedRow, 7).toString());
-        
+        txt_uas.setText(tableModel.getValueAt(selectedRow, 7).toString());        
+                
         btn_tambah.setEnabled(false);
         btn_ubah.setEnabled(true);
         btn_hapus.setEnabled(true);
@@ -883,7 +1013,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             
             if(res.next()){
                 String no_mk = res.getString("no_mk");
-                txt_kode_mk.setText(no_mk);
+                txt_no_mk.setText(no_mk);
             }
         }catch (Exception ex){
             JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
@@ -904,6 +1034,48 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txt_searchActionPerformed
 
+    private void txt_kehadiranKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_kehadiranKeyTyped
+        if(txt_kehadiran.getText().length()>=2) {  
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_kehadiranKeyTyped
+
+    private void txt_tugas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas1KeyTyped
+        if(txt_tugas1.getText().length()>=3) {  
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_tugas1KeyTyped
+
+    private void txt_tugas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas2KeyTyped
+        if(txt_tugas2.getText().length()>=3) {  
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_tugas2KeyTyped
+
+    private void txt_tugas3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas3KeyTyped
+        if(txt_tugas3.getText().length()>=3) {  
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_tugas3KeyTyped
+
+    private void txt_utsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_utsKeyTyped
+        if(txt_uts.getText().length()>=3) {  
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_utsKeyTyped
+
+    private void txt_uasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_uasKeyTyped
+        if(txt_uas.getText().length()>=3) {  
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_uasKeyTyped
+
+    private void txt_angkatanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_angkatanKeyTyped
+        if(txt_angkatan.getText().length()>=4) {  
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_angkatanKeyTyped
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -911,7 +1083,8 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_hapus;
@@ -937,10 +1110,10 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     private javax.swing.JTable table_mahasiswa_nilai;
     private javax.swing.JTextField txt_angkatan;
     private javax.swing.JTextField txt_kehadiran;
-    private javax.swing.JTextField txt_kode_mk;
     private javax.swing.JComboBox<String> txt_nama;
     private javax.swing.JComboBox<String> txt_nama_mk;
     private javax.swing.JTextField txt_nim;
+    private javax.swing.JTextField txt_no_mk;
     private javax.swing.JTextField txt_search;
     private javax.swing.JTextField txt_tugas1;
     private javax.swing.JTextField txt_tugas2;
