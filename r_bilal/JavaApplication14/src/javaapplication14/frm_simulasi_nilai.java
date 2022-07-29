@@ -183,7 +183,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     
     public void enabled_text(){
         txt_nama_mk.setEnabled(true);
-        txt_kode_mk.setEnabled(true);
+        txt_kode_mk.setEnabled(false);
         txt_p_absen.setEnabled(true);
         txt_p_tugas.setEnabled(true);
         txt_p_uts.setEnabled(true);
@@ -269,6 +269,8 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setText("FORM SIMULASI NILAI AKHIR");
 
@@ -279,7 +281,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(495, 495, 495)
                 .addComponent(jLabel1)
-                .addContainerGap(481, Short.MAX_VALUE))
+                .addContainerGap(477, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -603,7 +605,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                     .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_keluar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -744,6 +746,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 clear_text();
                 stt.close();
                 kon.close();
+               JOptionPane.showMessageDialog(null,"Data berhasil diubah");
             } catch(Exception ex){
                 System.err.println(ex.getMessage());
             }
@@ -774,6 +777,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
             clear_text();
             stt.close();
             kon.close();
+            JOptionPane.showMessageDialog(null,"Data berhasil dihapus");
         } catch(Exception ex){
             System.err.println(ex.getMessage());
         }
@@ -903,6 +907,8 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void btn_keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_keluarActionPerformed
+        frm_utama utama = new frm_utama();
+        utama.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_keluarActionPerformed
 

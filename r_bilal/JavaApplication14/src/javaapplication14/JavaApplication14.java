@@ -22,8 +22,8 @@ public class JavaApplication14 {
         // TODO code application logic here
 //        frm_simulasi_kasus mhs = new frm_simulasi_kasus();
 //        frm_mahasiswa mhs = new frm_mahasiswa();
-//        frm_login mhs = new frm_login();
-        frm_utama mhs = new frm_utama();
+        frm_login mhs = new frm_login();
+//        frm_utama mhs = new frm_utama();
 //        frm_mata_kuliah mhs = new frm_mata_kuliah();
         
 

@@ -598,6 +598,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getClickCount()==1){
             clear_text();
+            txt_search.setEnabled(false);
             fieldshow();
         }
     }//GEN-LAST:event_tabel_mahasiswaMouseClicked
@@ -645,6 +646,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
                 btn_ubah.setEnabled(false);
                 btn_hapus.setEnabled(false);
                 btn_batal.setEnabled(false);
+                txt_search.setEnabled(true);
                 
                 JOptionPane.showMessageDialog(null, "Data Berhasil Dirubah");
             } catch(Exception ex){
@@ -673,6 +675,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
             btn_hapus.setEnabled(false);
             btn_batal.setEnabled(false);
             btn_keluar.setEnabled(true);
+            txt_search.setEnabled(true);
             JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
             
         } catch(Exception ex) {
@@ -699,6 +702,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         btn_keluar.setEnabled(true);
         clear_text();
         disable_text();
+        txt_search.setEnabled(true);
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void txt_namaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_namaKeyTyped
@@ -726,6 +730,8 @@ public class frm_mahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nimKeyTyped
 
     private void btn_keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_keluarActionPerformed
+        frm_utama utama = new frm_utama();
+        utama.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_keluarActionPerformed
 
