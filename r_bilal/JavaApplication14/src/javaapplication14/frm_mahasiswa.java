@@ -8,7 +8,9 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -45,6 +47,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         btn_hapus.setEnabled(false);
         btn_simpan.setEnabled(false);
         btn_batal.setEnabled(false);
+
     }
     
     
@@ -546,6 +549,14 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         btn_batal.setEnabled(true);
         enable_text();
         txt_tgl_lahir.getDateEditor().setEnabled(false);
+        String tanggal_default = "2000-01-01";
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(tanggal_default);
+        } catch (ParseException ex) {
+            Logger.getLogger(frm_mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        txt_tgl_lahir.setDate(date);
     }//GEN-LAST:event_btn_tambahActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
@@ -553,8 +564,11 @@ public class frm_mahasiswa extends javax.swing.JFrame {
         String data[]=new String[5];
         SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
         String tanggal=String.valueOf(fm.format(txt_tgl_lahir.getDate()));
-        if((txt_nim.getText().isEmpty()) || (tanggal.isEmpty()) || (txt_nama.getText().isEmpty() || (txt_tmp_lahir.getText().isEmpty()) || (txt_alamat.getText().isEmpty()))){
-            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong, Silahkan Lengkapi :> ");
+        
+       
+        
+        if((txt_nim.getText().isEmpty()) || (txt_nama.getText().isEmpty() || (txt_tmp_lahir.getText().isEmpty()) || (txt_alamat.getText().isEmpty()))){
+            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong, Silahkan Lengkapi ");
             txt_nim.requestFocus();
         } else {
             try{
@@ -600,6 +614,7 @@ public class frm_mahasiswa extends javax.swing.JFrame {
             clear_text();
             txt_search.setEnabled(false);
             fieldshow();
+            txt_tgl_lahir.setEnabled(false);
         }
     }//GEN-LAST:event_tabel_mahasiswaMouseClicked
 

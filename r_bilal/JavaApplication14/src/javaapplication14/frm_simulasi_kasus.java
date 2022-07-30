@@ -50,6 +50,8 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         settableload();
         jPanel2.setVisible(false);
         int row = 0;
+         
+        jButton1.setEnabled(false);
     }
     
     public javax.swing.table.DefaultTableModel tableModel=getDefaultTableModel();
@@ -364,8 +366,9 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
 
     private void table_skMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_skMouseClicked
         // TODO add your handling code here:
-        String datakosong[] = new String[0]; 
+        String datakosong[] = new String[0];
         if(evt.getClickCount()==1){
+            jButton1.setEnabled(true);
             tableModelPrint.setRowCount(0);
             if(tableModelPrint.getRowCount()== 0){
                 dataprint(nim);

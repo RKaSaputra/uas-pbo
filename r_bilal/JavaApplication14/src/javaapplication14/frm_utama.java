@@ -47,10 +47,22 @@ public class frm_utama extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/photo/Reihan.jpeg"))); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+
         jLabel5.setText("10121113 / Reihan Nasywan M.K");
+
+        jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/photo/bilal.jpg"))); // NOI18N
+        jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/photo/Abdullah.jpeg"))); // NOI18N
+        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
 
         jLabel9.setText("10121102 / Abdullah Khatami");
 
@@ -60,7 +72,7 @@ public class frm_utama extends javax.swing.JFrame {
 
         jToolBar2.setRollover(true);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Roan\\Downloads\\14. Aplikasi Database\\Gambar\\mahasiswa.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/icon/mahasiswa.png"))); // NOI18N
         jButton1.setText("Data Mahasiswa");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setPreferredSize(new java.awt.Dimension(100, 78));
@@ -73,7 +85,7 @@ public class frm_utama extends javax.swing.JFrame {
         jToolBar2.add(jButton1);
         jToolBar2.add(jSeparator5);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Roan\\Downloads\\14. Aplikasi Database\\Gambar\\mata_kuliah.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/icon/mata_kuliah.png"))); // NOI18N
         jButton2.setText("Data Mata Kuliah");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -85,7 +97,7 @@ public class frm_utama extends javax.swing.JFrame {
         jToolBar2.add(jButton2);
         jToolBar2.add(jSeparator7);
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Roan\\Downloads\\14. Aplikasi Database\\Gambar\\nilai.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/icon/nilai.png"))); // NOI18N
         jButton3.setText("Data Nilai");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -97,7 +109,7 @@ public class frm_utama extends javax.swing.JFrame {
         jToolBar2.add(jButton3);
         jToolBar2.add(jSeparator6);
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Roan\\Downloads\\14. Aplikasi Database\\Gambar\\mahasiswa.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/icon/archiv.png"))); // NOI18N
         jButton4.setText("Simulasi Nilai Akhir");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -109,7 +121,7 @@ public class frm_utama extends javax.swing.JFrame {
         jToolBar2.add(jButton4);
         jToolBar2.add(jSeparator8);
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Roan\\Downloads\\14. Aplikasi Database\\Gambar\\print.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication14/icon/print.png"))); // NOI18N
         jButton5.setText("Simulasi Kasus");
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -130,6 +142,14 @@ public class frm_utama extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setText("Log out");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -138,17 +158,18 @@ public class frm_utama extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel5)
@@ -161,7 +182,7 @@ public class frm_utama extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16))
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,6 +247,13 @@ public class frm_utama extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        frm_login login = new frm_login();
+        login.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -278,6 +306,7 @@ public class frm_utama extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;

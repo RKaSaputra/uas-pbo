@@ -186,7 +186,7 @@ public class frm_login extends javax.swing.JFrame {
                 }
             }
         } catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "what hapen?");
+            JOptionPane.showMessageDialog(null, "Username atau password tidak boleh kosong");
         }
 
     }//GEN-LAST:event_btn_loginActionPerformed

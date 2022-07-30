@@ -668,47 +668,48 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
         
         int selectedRow = table_mahasiswa_nilai.getSelectedRow();
         
-        int I_kehadiran = Integer.parseInt(txt_kehadiran.getText());
-        int I_tugas1 = Integer.parseInt(txt_tugas1.getText());
-        int I_tugas2 = Integer.parseInt(txt_tugas2.getText());
-        int I_tugas3 = Integer.parseInt(txt_tugas3.getText());
-        int I_uts = Integer.parseInt(txt_uts.getText());
-        int I_uas = Integer.parseInt(txt_uas.getText());
+
         
-        double n_absen = ((I_kehadiran/14)*100*5)/100;
-        double n_tugas = (((I_tugas1+I_tugas2+I_tugas3)/3)*0.25);
-        double n_uts =  I_uts*0.30;
-        double n_uas = I_uas*0.40;
-        double n_akhir = n_absen+n_tugas+n_uts+n_uas;
-        
-        String index = "";
-        
-        if(n_akhir>=80){
-            index = "A";
-        } else if(n_akhir>=68 && n_akhir<=79){
-            index = "B";
-        } else if(n_akhir>=56 && n_akhir<=67){
-            index = "C";
-        } else if(n_akhir>=45 && n_akhir<=55){
-            index = "D";
-        } else {
-            index = "E";
-        } 
-        
-        String ket = "";
-        if(I_kehadiran<11){
-            ket = "TIDAK LULUS";
-        }else if (index == "A" || index == "B" || index == "C"){
-            ket = "LULUS";
-        } else if(index == "D" || index == "E" ){
-            ket = "TIDAK LULUS";
-        } 
-        
-        if((nim.isEmpty()) || (kode_mk.isEmpty()) || (nama.isEmpty())|| (kehadiran.isEmpty())|| (tugas1.isEmpty())|| (tugas2.isEmpty())|| (tugas3.isEmpty())|| (uts.isEmpty())|| (uas.isEmpty())  ){
+        if((txt_kehadiran.getText().isEmpty()) || (txt_tugas1.getText().isEmpty()) || (txt_tugas2.getText().isEmpty()) || (txt_tugas3.getText().isEmpty()) || (txt_uts.getText().isEmpty()) ||(txt_uas.getText().isEmpty()) ){
             JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
             txt_nim.requestFocus();
         }else{
             try{
+                int I_kehadiran = Integer.parseInt(txt_kehadiran.getText());
+                int I_tugas1 = Integer.parseInt(txt_tugas1.getText());
+                int I_tugas2 = Integer.parseInt(txt_tugas2.getText());
+                int I_tugas3 = Integer.parseInt(txt_tugas3.getText());
+                int I_uts = Integer.parseInt(txt_uts.getText());
+                int I_uas = Integer.parseInt(txt_uas.getText());
+
+                double n_absen = ((I_kehadiran/14)*100*5)/100;
+                double n_tugas = (((I_tugas1+I_tugas2+I_tugas3)/3)*0.25);
+                double n_uts =  I_uts*0.30;
+                double n_uas = I_uas*0.40;
+                double n_akhir = n_absen+n_tugas+n_uts+n_uas;
+
+                String index = "";
+
+                if(n_akhir>=80){
+                    index = "A";
+                } else if(n_akhir>=68 && n_akhir<=79){
+                    index = "B";
+                } else if(n_akhir>=56 && n_akhir<=67){
+                    index = "C";
+                } else if(n_akhir>=45 && n_akhir<=55){
+                    index = "D";
+                } else {
+                    index = "E";
+                } 
+
+                String ket = "";
+                if(I_kehadiran<11){
+                    ket = "TIDAK LULUS";
+                }else if (index == "A" || index == "B" || index == "C"){
+                    ket = "LULUS";
+                } else if(index == "D" || index == "E" ){
+                    ket = "TIDAK LULUS";
+                } 
                 Class.forName(driver);
                 Connection kon = DriverManager.getConnection(database,user,pass);
                 Statement stt = kon.createStatement();
@@ -808,28 +809,31 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
         String data[]=new String[15];
         
-        int kehadiran = Integer.parseInt(txt_kehadiran.getText());
-        int tugas1 = Integer.parseInt(txt_tugas1.getText());
-        int tugas2 = Integer.parseInt(txt_tugas2.getText());
-        int tugas3 = Integer.parseInt(txt_tugas3.getText());
-        int uts = Integer.parseInt(txt_uts.getText());
-        int uas = Integer.parseInt(txt_uas.getText());
-        
-        double n_absen = ((kehadiran/14)*100*5)/100;
-        double n_tugas = (((tugas1+tugas2+tugas3)/3)*0.25);
-        double n_uts =  uts*0.30;
-        double n_uas = uas*0.40;
-        double n_akhir = n_absen+n_tugas+n_uts+n_uas;
         
         
         
-        if ((txt_nim.getText().isEmpty()) || (txt_no_mk.getText().isEmpty()) || (txt_kehadiran.getText().isEmpty()) || (txt_tugas1.getText().isEmpty()) || (txt_tugas2.getText().isEmpty()) || (txt_tugas3.getText().isEmpty()) || (txt_uts.getText().isEmpty()) || (txt_uas.getText().isEmpty())){
-            JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
-            txt_nim.requestFocus();
+        
+        
+        
+        if((txt_kehadiran.getText().isEmpty()) || (txt_tugas1.getText().isEmpty()) || (txt_tugas2.getText().isEmpty()) || (txt_tugas3.getText().isEmpty()) || (txt_uts.getText().isEmpty()) ||(txt_uas.getText().isEmpty()) ){
+            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong, Silahkan Lengkapi ");
         }else{
+            int kehadiran = Integer.parseInt(txt_kehadiran.getText());
+            int tugas1 = Integer.parseInt(txt_tugas1.getText());
+            int tugas2 = Integer.parseInt(txt_tugas2.getText());
+            int tugas3 = Integer.parseInt(txt_tugas3.getText());
+            int uts = Integer.parseInt(txt_uts.getText());
+            int uas = Integer.parseInt(txt_uas.getText());
+
+            double n_absen = ((kehadiran/14)*100*5)/100;
+            double n_tugas = (((tugas1+tugas2+tugas3)/3)*0.25);
+            double n_uts =  uts*0.30;
+            double n_uas = uas*0.40;
+            double n_akhir = n_absen+n_tugas+n_uts+n_uas;
             if((kehadiran > 14) || (tugas1 > 100) || (tugas2 > 100) || (tugas3 > 100) || (uts > 100)  || (uas > 100)){
                 JOptionPane.showMessageDialog(null, "Kehadiran Maksimal 14, nilai maksimal 100");
             }else {
+                
                 String index = "A";
         
                 if(n_akhir>80){

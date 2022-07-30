@@ -17,6 +17,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Log out"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
@@ -45,18 +53,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" pref="158" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" pref="160" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" pref="160" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -72,7 +81,7 @@
                       <Component id="jToolBar2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,6 +111,21 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/javaapplication14/photo/Reihan.jpeg"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="highlightInner" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowInner" blue="0" green="0" red="0" type="rgb"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -109,10 +133,52 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="highlightInner" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowInner" blue="0" green="0" red="0" type="rgb"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/javaapplication14/photo/bilal.jpg"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="highlightInner" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowInner" blue="0" green="0" red="0" type="rgb"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/javaapplication14/photo/Abdullah.jpeg"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="highlightInner" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowOuter" blue="0" green="0" red="0" type="rgb"/>
+              <Color PropertyName="shadowInner" blue="0" green="0" red="0" type="rgb"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -139,7 +205,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Roan\Downloads\14. Aplikasi Database\Gambar\mahasiswa.png"/>
+              <Image iconType="3" name="/javaapplication14/icon/mahasiswa.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Data Mahasiswa"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -157,7 +223,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Roan\Downloads\14. Aplikasi Database\Gambar\mata_kuliah.png"/>
+              <Image iconType="3" name="/javaapplication14/icon/mata_kuliah.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Data Mata Kuliah"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -172,7 +238,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Roan\Downloads\14. Aplikasi Database\Gambar\nilai.png"/>
+              <Image iconType="3" name="/javaapplication14/icon/nilai.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Data Nilai"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -187,7 +253,7 @@
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Roan\Downloads\14. Aplikasi Database\Gambar\mahasiswa.png"/>
+              <Image iconType="3" name="/javaapplication14/icon/archiv.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Simulasi Nilai Akhir"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -202,7 +268,7 @@
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Roan\Downloads\14. Aplikasi Database\Gambar\print.png"/>
+              <Image iconType="3" name="/javaapplication14/icon/print.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Simulasi Kasus"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
