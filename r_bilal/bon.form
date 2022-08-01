@@ -39,7 +39,7 @@
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="107" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,111 +51,125 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="cb_ceker_ndower" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_sayap_ndower" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_kepala_ndower" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_ayam_geprek" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_mie_nelongso" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_paket_nasi_ayam_geprek" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_usus_ndower" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="cb_nasi" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_paket_mie_ayam_geprek" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_mie_goreng" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_telor_ceplok" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_air_mineral" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_teh_pucuk" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                          <Component id="Harga" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="cb_ceker_ndower" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_sayap_ndower" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_kepala_ndower" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_ayam_geprek" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_mie_nelongso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_paket_nasi_ayam_geprek" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_usus_ndower" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="cb_nasi" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_paket_mie_ayam_geprek" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_mie_goreng" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_telor_ceplok" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_air_mineral" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_teh_pucuk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                  <Component id="Harga" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="txt_paket_mie_ayam_geprek" alignment="0" pref="73" max="32767" attributes="0"/>
+                                      <Component id="txt_ayam_geprek" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_kepala_ndower" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_sayap_ndower" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_ceker_ndower" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_usus_ndower" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_mie_nelongso" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_paket_nasi_ayam_geprek" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_nasi" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_mie_goreng" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_telor_ceplok" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_air_mineral" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_teh_pucuk" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txt_teh_pucuk1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_air_mineral1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_telor_ceplok1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_mie_goreng1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_nasi1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_paket_mie_ayam_geprek1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_paket_nasi_ayam_geprek1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_mie_nelongso1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_ayam_geprek1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_kepala_ndower1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_sayap_ndower1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_ceker_ndower1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_usus_ndower1" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                          </Group>
-                          <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txt_paket_mie_ayam_geprek" alignment="0" pref="73" max="32767" attributes="0"/>
-                              <Component id="txt_ayam_geprek" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_kepala_ndower" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_sayap_ndower" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_ceker_ndower" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_usus_ndower" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_mie_nelongso" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_paket_nasi_ayam_geprek" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_nasi" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_mie_goreng" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_telor_ceplok" alignment="0" max="32767" attributes="0"/>
-                              <Component id="air_mineral" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_teh_pucuk" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txt_teh_pucuk1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="air_mineral1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_telor_ceplok1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_mie_goreng1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_nasi1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_paket_mie_ayam_geprek1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_paket_nasi_ayam_geprek1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_mie_nelongso1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_ayam_geprek1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_kepala_ndower1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_sayap_ndower1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_ceker_ndower1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_usus_ndower1" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jSeparator1" alignment="0" min="-2" pref="430" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jSeparator1" alignment="0" min="-2" pref="430" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton2" max="32767" attributes="0"/>
-                              <Component id="jButton1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_jumlah" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btn_preview" max="32767" attributes="0"/>
+                                  <Component id="btn_hitung" max="32767" attributes="0"/>
+                                  <Component id="btn_cetak" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -193,7 +207,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txt_telor_ceplok1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="air_mineral1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_air_mineral1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txt_teh_pucuk1" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -272,7 +286,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="cb_air_mineral" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="air_mineral" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_air_mineral" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -285,17 +299,26 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_jumlah" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btn_hitung" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_preview" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btn_cetak" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -328,10 +351,16 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_usus_ndower">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_ceker_ndower">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="air_mineral1">
+        <Component class="javax.swing.JTextField" name="txt_air_mineral1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -349,6 +378,9 @@
         <Component class="javax.swing.JSeparator" name="jSeparator1">
         </Component>
         <Component class="javax.swing.JTextField" name="txt_sayap_ndower">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
@@ -357,27 +389,57 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_kepala_ndower">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_ayam_geprek">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_mie_nelongso">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_mie_nelongsoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_paket_nasi_ayam_geprek">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_paket_mie_ayam_geprek">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_nasi">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_mie_goreng">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_telor_ceplok">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="air_mineral">
+        <Component class="javax.swing.JTextField" name="txt_air_mineral">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_teh_pucuk">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -602,7 +664,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="Tujuan">
+            <Component class="javax.swing.JTextArea" name="txa_tujuan">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
@@ -610,17 +672,52 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btn_hitung">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hitung"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_hitungActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_preview">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cetak Preview"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_previewActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_cetak">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cetak"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cetakActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel29">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Book" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Jumlah : Rp."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reset"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JLabel" name="txt_jumlah">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cetak Preview"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Book" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -651,14 +748,14 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txt_nim2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_nama2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_nota" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_tanggal" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txt_nama3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_tujuan" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -679,12 +776,14 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txt_jumlah_print" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -700,24 +799,27 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_nim2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_nota" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_nama2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_tanggal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_nama3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_tujuan" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane4" min="-2" pref="317" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_jumlah_print" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="42" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -769,7 +871,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tableprint2">
+            <Component class="javax.swing.JTable" name="table_bon">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
@@ -786,7 +888,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="txt_nim2">
+        <Component class="javax.swing.JLabel" name="txt_nota">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Franklin Gothic Book" size="14" style="0"/>
@@ -794,7 +896,7 @@
             <Property name="text" type="java.lang.String" value="N"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txt_nama2">
+        <Component class="javax.swing.JLabel" name="txt_tanggal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Franklin Gothic Book" size="14" style="0"/>
@@ -802,7 +904,7 @@
             <Property name="text" type="java.lang.String" value="N"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txt_nama3">
+        <Component class="javax.swing.JLabel" name="txt_tujuan">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Franklin Gothic Book" size="14" style="0"/>
@@ -823,7 +925,15 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Franklin Gothic Book" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Jumlah : Rp."/>
+            <Property name="text" type="java.lang.String" value="Jumlah Bayar : Rp."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txt_jumlah_print">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Book" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="m"/>
           </Properties>
         </Component>
       </SubComponents>

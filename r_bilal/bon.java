@@ -4,6 +4,23 @@
  */
 package javaapplication14;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Roan
@@ -17,7 +34,29 @@ public class bon extends javax.swing.JFrame {
         initComponents();
         banyakdisable();
         jumlahdisable();
+        jPanel4.setVisible(false);
+        btn_preview.setVisible(false);
+        btn_cetak.setVisible(false);
+        txa_tujuan.setEnabled(false);
+        table_bon.setModel(tableModel);
     }
+    
+    public javax.swing.table.DefaultTableModel tableModel=getDefaultTableModel();
+    private javax.swing.table.DefaultTableModel getDefaultTableModel(){
+        return new javax.swing.table.DefaultTableModel(
+                new Object[][] {},
+                new String[] {"Banyak","Menu","Harga","Jumlah"}
+        ){
+            boolean[] canEdit = new boolean[]{
+                false,false,false,false
+            };
+            public boolean isCellEditable(int rowIndex, int columnIndex){
+                return canEdit[columnIndex];
+            }
+        };
+    }
+
+    int no_nota = 0;
     
     public void banyakdisable(){
         txt_usus_ndower.setEnabled(false);
@@ -31,7 +70,7 @@ public class bon extends javax.swing.JFrame {
         txt_nasi.setEnabled(false);
         txt_mie_goreng.setEnabled(false);
         txt_telor_ceplok.setEnabled(false);
-        air_mineral.setEnabled(false);
+        txt_air_mineral.setEnabled(false);
         txt_teh_pucuk.setEnabled(false);
     }
     
@@ -47,7 +86,7 @@ public class bon extends javax.swing.JFrame {
         txt_nasi1.setEnabled(false);
         txt_mie_goreng1.setEnabled(false);
         txt_telor_ceplok1.setEnabled(false);
-        air_mineral1.setEnabled(false);
+        txt_air_mineral1.setEnabled(false);
         txt_teh_pucuk1.setEnabled(false);
     }
     
@@ -63,7 +102,7 @@ public class bon extends javax.swing.JFrame {
         txt_nasi1.setVisible(false);
         txt_mie_goreng1.setVisible(false);
         txt_telor_ceplok1.setVisible(false);
-        air_mineral1.setVisible(false);
+        txt_air_mineral1.setVisible(false);
         txt_teh_pucuk1.setVisible(false);
         
     }
@@ -80,7 +119,7 @@ public class bon extends javax.swing.JFrame {
         txt_nasi1.setVisible(true);
         txt_mie_goreng1.setVisible(true);
         txt_telor_ceplok1.setVisible(true);
-        air_mineral1.setVisible(true);
+        txt_air_mineral1.setVisible(true);
         txt_teh_pucuk1.setVisible(true);
     }
     
@@ -101,7 +140,7 @@ public class bon extends javax.swing.JFrame {
         txt_telor_ceplok1 = new javax.swing.JTextField();
         txt_usus_ndower = new javax.swing.JTextField();
         txt_ceker_ndower = new javax.swing.JTextField();
-        air_mineral1 = new javax.swing.JTextField();
+        txt_air_mineral1 = new javax.swing.JTextField();
         txt_teh_pucuk1 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -115,7 +154,7 @@ public class bon extends javax.swing.JFrame {
         txt_nasi = new javax.swing.JTextField();
         txt_mie_goreng = new javax.swing.JTextField();
         txt_telor_ceplok = new javax.swing.JTextField();
-        air_mineral = new javax.swing.JTextField();
+        txt_air_mineral = new javax.swing.JTextField();
         txt_teh_pucuk = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -154,9 +193,13 @@ public class bon extends javax.swing.JFrame {
         cb_telor_ceplok = new javax.swing.JCheckBox();
         txt_nasi1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tujuan = new javax.swing.JTextArea();
+        txa_tujuan = new javax.swing.JTextArea();
+        btn_hitung = new javax.swing.JButton();
+        btn_preview = new javax.swing.JButton();
+        btn_cetak = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txt_jumlah = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -164,12 +207,13 @@ public class bon extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tableprint2 = new javax.swing.JTable();
-        txt_nim2 = new javax.swing.JLabel();
-        txt_nama2 = new javax.swing.JLabel();
-        txt_nama3 = new javax.swing.JLabel();
+        table_bon = new javax.swing.JTable();
+        txt_nota = new javax.swing.JLabel();
+        txt_tanggal = new javax.swing.JLabel();
+        txt_tujuan = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        txt_jumlah_print = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -191,20 +235,45 @@ public class bon extends javax.swing.JFrame {
 
         txt_telor_ceplok1.setText("0");
 
-        air_mineral1.setText("0");
+        txt_usus_ndower.setText("0");
+
+        txt_ceker_ndower.setText("0");
+
+        txt_air_mineral1.setText("0");
 
         txt_teh_pucuk1.setText("0");
 
         jLabel16.setText("Jumlah");
 
+        txt_sayap_ndower.setText("0");
+
         jLabel17.setText("Tujuan");
         jLabel17.setToolTipText("");
 
+        txt_kepala_ndower.setText("0");
+
+        txt_ayam_geprek.setText("0");
+
+        txt_mie_nelongso.setText("0");
         txt_mie_nelongso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_mie_nelongsoActionPerformed(evt);
             }
         });
+
+        txt_paket_nasi_ayam_geprek.setText("0");
+
+        txt_paket_mie_ayam_geprek.setText("0");
+
+        txt_nasi.setText("0");
+
+        txt_mie_goreng.setText("0");
+
+        txt_telor_ceplok.setText("0");
+
+        txt_air_mineral.setText("0");
+
+        txt_teh_pucuk.setText("0");
 
         jLabel4.setText("Daftar Menu");
 
@@ -338,114 +407,149 @@ public class bon extends javax.swing.JFrame {
 
         txt_nasi1.setText("0");
 
-        Tujuan.setColumns(20);
-        Tujuan.setRows(5);
-        jScrollPane1.setViewportView(Tujuan);
+        txa_tujuan.setColumns(20);
+        txa_tujuan.setRows(5);
+        jScrollPane1.setViewportView(txa_tujuan);
 
-        jButton1.setText("Hitung");
+        btn_hitung.setText("Hitung");
+        btn_hitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_hitungActionPerformed(evt);
+            }
+        });
+
+        btn_preview.setText("Cetak Preview");
+        btn_preview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_previewActionPerformed(evt);
+            }
+        });
+
+        btn_cetak.setText("Cetak");
+        btn_cetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cetakActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
+        jLabel29.setText("Jumlah : Rp.");
+
+        jButton1.setText("Reset");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cetak Preview");
+        txt_jumlah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
+        txt_jumlah.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cb_ceker_ndower)
-                                .addComponent(cb_sayap_ndower)
-                                .addComponent(cb_kepala_ndower)
-                                .addComponent(cb_ayam_geprek)
-                                .addComponent(cb_mie_nelongso)
-                                .addComponent(cb_paket_nasi_ayam_geprek)
-                                .addComponent(cb_usus_ndower))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cb_nasi)
-                                .addComponent(cb_paket_mie_ayam_geprek)
-                                .addComponent(cb_mie_goreng)
-                                .addComponent(cb_telor_ceplok)
-                                .addComponent(cb_air_mineral)
-                                .addComponent(cb_teh_pucuk))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel4)))
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cb_ceker_ndower)
+                                        .addComponent(cb_sayap_ndower)
+                                        .addComponent(cb_kepala_ndower)
+                                        .addComponent(cb_ayam_geprek)
+                                        .addComponent(cb_mie_nelongso)
+                                        .addComponent(cb_paket_nasi_ayam_geprek)
+                                        .addComponent(cb_usus_ndower))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cb_nasi)
+                                        .addComponent(cb_paket_mie_ayam_geprek)
+                                        .addComponent(cb_mie_goreng)
+                                        .addComponent(cb_telor_ceplok)
+                                        .addComponent(cb_air_mineral)
+                                        .addComponent(cb_teh_pucuk))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jLabel4)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(Harga))
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15))))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel5))
-                            .addComponent(txt_paket_mie_ayam_geprek, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                            .addComponent(txt_ayam_geprek)
-                            .addComponent(txt_kepala_ndower)
-                            .addComponent(txt_sayap_ndower)
-                            .addComponent(txt_ceker_ndower)
-                            .addComponent(txt_usus_ndower)
-                            .addComponent(txt_mie_nelongso)
-                            .addComponent(txt_paket_nasi_ayam_geprek)
-                            .addComponent(txt_nasi)
-                            .addComponent(txt_mie_goreng)
-                            .addComponent(txt_telor_ceplok)
-                            .addComponent(air_mineral)
-                            .addComponent(txt_teh_pucuk))
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_teh_pucuk1)
-                            .addComponent(air_mineral1)
-                            .addComponent(txt_telor_ceplok1)
-                            .addComponent(txt_mie_goreng1)
-                            .addComponent(txt_nasi1)
-                            .addComponent(txt_paket_mie_ayam_geprek1)
-                            .addComponent(txt_paket_nasi_ayam_geprek1)
-                            .addComponent(txt_mie_nelongso1)
-                            .addComponent(txt_ayam_geprek1)
-                            .addComponent(txt_kepala_ndower1)
-                            .addComponent(txt_sayap_ndower1)
-                            .addComponent(txt_ceker_ndower1)
-                            .addComponent(txt_usus_ndower1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel16))))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGap(13, 13, 13)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addComponent(Harga))
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel8)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel15))))
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(jLabel5))
+                                    .addComponent(txt_paket_mie_ayam_geprek, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                                    .addComponent(txt_ayam_geprek)
+                                    .addComponent(txt_kepala_ndower)
+                                    .addComponent(txt_sayap_ndower)
+                                    .addComponent(txt_ceker_ndower)
+                                    .addComponent(txt_usus_ndower)
+                                    .addComponent(txt_mie_nelongso)
+                                    .addComponent(txt_paket_nasi_ayam_geprek)
+                                    .addComponent(txt_nasi)
+                                    .addComponent(txt_mie_goreng)
+                                    .addComponent(txt_telor_ceplok)
+                                    .addComponent(txt_air_mineral)
+                                    .addComponent(txt_teh_pucuk))
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_teh_pucuk1)
+                                    .addComponent(txt_air_mineral1)
+                                    .addComponent(txt_telor_ceplok1)
+                                    .addComponent(txt_mie_goreng1)
+                                    .addComponent(txt_nasi1)
+                                    .addComponent(txt_paket_mie_ayam_geprek1)
+                                    .addComponent(txt_paket_nasi_ayam_geprek1)
+                                    .addComponent(txt_mie_nelongso1)
+                                    .addComponent(txt_ayam_geprek1)
+                                    .addComponent(txt_kepala_ndower1)
+                                    .addComponent(txt_sayap_ndower1)
+                                    .addComponent(txt_ceker_ndower1)
+                                    .addComponent(txt_usus_ndower1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jLabel16))))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel29)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txt_jumlah)
+                            .addGap(69, 69, 69))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btn_preview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_hitung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_cetak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -478,7 +582,7 @@ public class bon extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_telor_ceplok1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(air_mineral1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_air_mineral1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_teh_pucuk1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -544,7 +648,7 @@ public class bon extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cb_air_mineral)
-                            .addComponent(air_mineral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_air_mineral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -553,15 +657,23 @@ public class bon extends javax.swing.JFrame {
                             .addComponent(jLabel15))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(txt_jumlah))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btn_hitung)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(btn_preview)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_cetak)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addGap(23, 23, 23))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -579,7 +691,7 @@ public class bon extends javax.swing.JFrame {
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
 
-        tableprint2.setModel(new javax.swing.table.DefaultTableModel(
+        table_bon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -590,23 +702,26 @@ public class bon extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tableprint2.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane4.setViewportView(tableprint2);
+        table_bon.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setViewportView(table_bon);
 
-        txt_nim2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        txt_nim2.setText("N");
+        txt_nota.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        txt_nota.setText("N");
 
-        txt_nama2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        txt_nama2.setText("N");
+        txt_tanggal.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        txt_tanggal.setText("N");
 
-        txt_nama3.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        txt_nama3.setText("N");
+        txt_tujuan.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        txt_tujuan.setText("N");
 
         jLabel27.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jLabel27.setText("Tujuan          :");
 
         jLabel28.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
-        jLabel28.setText("Jumlah : Rp.");
+        jLabel28.setText("Jumlah Bayar : Rp.");
+
+        txt_jumlah_print.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
+        txt_jumlah_print.setText("m");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -626,12 +741,12 @@ public class bon extends javax.swing.JFrame {
                                     .addComponent(jLabel26))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_nim2)
-                                    .addComponent(txt_nama2)))
+                                    .addComponent(txt_nota)
+                                    .addComponent(txt_tanggal)))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_nama3))))
+                                .addComponent(txt_tujuan))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -644,11 +759,13 @@ public class bon extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel24)
-                        .addGap(92, 92, 92))))
+                        .addGap(92, 92, 92))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_jumlah_print)
+                        .addGap(46, 46, 46))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,21 +777,23 @@ public class bon extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(txt_nim2))
+                    .addComponent(txt_nota))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(txt_nama2))
+                    .addComponent(txt_tanggal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(txt_nama3))
+                    .addComponent(txt_tujuan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel28)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(txt_jumlah_print))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -695,7 +814,7 @@ public class bon extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
@@ -813,48 +932,114 @@ public class bon extends javax.swing.JFrame {
     private void cb_air_mineralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_air_mineralActionPerformed
         // TODO add your handling code here:
         if(cb_air_mineral.isSelected()){
-            air_mineral.setEnabled(true);
+            txt_air_mineral.setEnabled(true);
         } else {
-            air_mineral.setEnabled(false);
+            txt_air_mineral.setEnabled(false);
         }
     }//GEN-LAST:event_cb_air_mineralActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_hitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hitungActionPerformed
         // TODO add your handling code here:
+        int jumlah1 = 0;
+        int jumlah2 = 0;
+        int jumlah3 = 0;
+        int jumlah4 = 0;
+        int jumlah5 = 0;
+        int jumlah6 = 0;
+        int jumlah7 = 0;
+        int jumlah8 = 0;
+        int jumlah9 = 0;
+        int jumlah10 = 0;
+        int jumlah11 = 0;
+        int jumlah12 = 0;
+        int jumlah13 = 0;
+        
         
         int harga1 = 12000;
         int banyak1 = Integer.parseInt(txt_usus_ndower.getText());
-        int jumlah1 = harga1 * banyak1;
+        jumlah1 = harga1 * banyak1;
         String jumlahS1 = String.valueOf(jumlah1);
         txt_usus_ndower1.setText(jumlahS1);
         
         int harga2 = 12000;
         int banyak2 = Integer.parseInt(txt_ceker_ndower.getText());
-        int jumlah2 = harga2 * banyak2;
+        jumlah2 = harga2 * banyak2;
         String jumlahS2 = String.valueOf(jumlah2);
         txt_ceker_ndower1.setText(jumlahS2);
         
         int harga3 = 17500;
         int banyak3 = Integer.parseInt(txt_sayap_ndower.getText());
-        int jumlah3 = harga3 * banyak3;
+        jumlah3 = harga3 * banyak3;
         String jumlahS3 = String.valueOf(jumlah3);
         txt_sayap_ndower1.setText(jumlahS3);
 
         int harga4 = 12000;
         int banyak4 = Integer.parseInt(txt_kepala_ndower.getText());
-        int jumlah4 = harga4 * banyak4;
+        jumlah4 = harga4 * banyak4;
         String jumlahS4 = String.valueOf(jumlah4);
         txt_kepala_ndower1.setText(jumlahS4);
 
         int harga5 = 17500;
         int banyak5 = Integer.parseInt(txt_ayam_geprek.getText());
-        int jumlah5 = harga5 * banyak5;
+        jumlah5 = harga5 * banyak5;
         String jumlahS5 = String.valueOf(jumlah5);
         txt_ayam_geprek1.setText(jumlahS5);
         
+        int harga6 = 12000;
+        int banyak6 = Integer.parseInt(txt_mie_nelongso.getText());
+        jumlah6 = harga6 * banyak6;
+        String jumlahS6 = String.valueOf(jumlah6);
+        txt_mie_nelongso1.setText(jumlahS6);
+
+        int harga7 = 21500;
+        int banyak7 = Integer.parseInt(txt_paket_nasi_ayam_geprek.getText());
+        jumlah7 = harga7 * banyak7;
+        String jumlahS7 = String.valueOf(jumlah7);
+        txt_paket_nasi_ayam_geprek1.setText(jumlahS7);
+
+        int harga8 = 22500;
+        int banyak8 = Integer.parseInt(txt_paket_mie_ayam_geprek.getText());
+        jumlah8 = harga8 * banyak8;
+        String jumlahS8 = String.valueOf(jumlah8);
+        txt_paket_mie_ayam_geprek1.setText(jumlahS8);
+
+        int harga9 = 5000;
+        int banyak9 = Integer.parseInt(txt_nasi.getText());
+        jumlah9 = harga9 * banyak9;
+        String jumlahS9 = String.valueOf(jumlah9);
+        txt_nasi1.setText(jumlahS9);
+
+        int harga10 = 6000;
+        int banyak10 = Integer.parseInt(txt_mie_goreng.getText());
+        jumlah10 = harga10 * banyak10;
+        String jumlahS10 = String.valueOf(jumlah10);
+        txt_mie_goreng1.setText(jumlahS10);
+
+        int harga11 = 3000;
+        int banyak11 = Integer.parseInt(txt_telor_ceplok.getText());
+        jumlah11 = harga11 * banyak11;
+        String jumlahS11 = String.valueOf(jumlah11);
+        txt_telor_ceplok1.setText(jumlahS11);
+
+        int harga12 = 5000;
+        int banyak12 = Integer.parseInt(txt_air_mineral.getText());
+        jumlah12 = harga12 * banyak12;
+        String jumlahS12 = String.valueOf(jumlah12);
+        txt_air_mineral1.setText(jumlahS12);
+
+        int harga13 = 6000;
+        int banyak13 = Integer.parseInt(txt_teh_pucuk.getText());
+        jumlah13 = harga13 * banyak13;
+        String jumlahS13 = String.valueOf(jumlah13);
+        txt_teh_pucuk1.setText(jumlahS13);
         
+        int total_jumlah = jumlah1 + jumlah2 + jumlah3 + jumlah4 + jumlah5 + jumlah6 + jumlah7 + jumlah8 + jumlah9 + jumlah10 + jumlah11 + jumlah12 + jumlah13;
+        String totaljumlah = String.valueOf(total_jumlah);
+        txt_jumlah.setText(totaljumlah);
+        txa_tujuan.setEnabled(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        btn_preview.setVisible(true);
+    }//GEN-LAST:event_btn_hitungActionPerformed
 
     private void txt_mie_nelongsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_mie_nelongsoActionPerformed
         // TODO add your handling code here:
@@ -863,6 +1048,223 @@ public class bon extends javax.swing.JFrame {
     private void txt_usus_ndower1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usus_ndower1KeyReleased
 
     }//GEN-LAST:event_txt_usus_ndower1KeyReleased
+
+    private void btn_previewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_previewActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)table_bon.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
+        
+        jPanel4.setVisible(true);
+        btn_cetak.setVisible(true);
+        
+        String jumlah = txt_jumlah.getText();
+        txt_jumlah_print.setText(jumlah);
+        
+        
+        no_nota = no_nota + 1;
+        String notaS = String.valueOf(no_nota);
+        txt_nota.setText(notaS);
+        
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Timestamp ts = Timestamp.from(Instant.now());
+        String tss = String.valueOf(ts);
+        txt_tanggal.setText(tss);
+        
+        String ta_tujuan = txa_tujuan.getText();
+        txt_tujuan.setText(ta_tujuan);
+        
+        String data[]=new String[4];
+        if(cb_usus_ndower.isSelected()){
+            data[0] = txt_usus_ndower.getText();
+            data[1] = "Usus Ndower";
+            data[2] = "Rp. 12.000";
+            data[3] = "Rp. "+ txt_usus_ndower1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_ceker_ndower.isSelected()){
+            data[0] = txt_ceker_ndower.getText();
+            data[1] = "Ceker Ndower";
+            data[2] = "Rp. 12.000";
+            data[3] = "Rp. "+ txt_ceker_ndower1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_sayap_ndower.isSelected()){
+            data[0] = txt_sayap_ndower.getText();
+            data[1] = "Sayap Ndower";
+            data[2] = "Rp. 17.500";
+            data[3] = "Rp. "+ txt_sayap_ndower1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_kepala_ndower.isSelected()){
+            data[0] = txt_kepala_ndower.getText();
+            data[1] = "Kepala Ndower";
+            data[2] = "Rp. 12.000";
+            data[3] = "Rp. "+ txt_kepala_ndower1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_ayam_geprek.isSelected()){
+            data[0] = txt_ayam_geprek.getText();
+            data[1] = "Ayam Geprek";
+            data[2] = "Rp. 17.500";
+            data[3] = "Rp. "+ txt_ayam_geprek1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_mie_nelongso.isSelected()){
+            data[0] = txt_mie_nelongso.getText();
+            data[1] = "Mie Nelongso";
+            data[2] = "Rp. 12.000";
+            data[3] = "Rp. "+ txt_mie_nelongso1.getText();
+            tableModel.addRow(data);
+        }
+        if(cb_paket_nasi_ayam_geprek.isSelected()){
+            data[0] = txt_paket_nasi_ayam_geprek.getText();
+            data[1] = "Nasi Ayam Geprek";
+            data[2] = "Rp. 21.500";
+            data[3] = "Rp. "+ txt_paket_nasi_ayam_geprek1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_paket_mie_ayam_geprek.isSelected()){
+            data[0] = txt_paket_mie_ayam_geprek.getText();
+            data[1] = "Paket Mie Ayam Geprek";
+            data[2] = "Rp.22.500";
+            data[3] = "Rp. "+ txt_paket_mie_ayam_geprek1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_nasi.isSelected()){
+            data[0] = txt_nasi.getText();
+            data[1] = "Nasi";
+            data[2] = "Rp. 5.000";
+            data[3] = "Rp. "+ txt_nasi1.getText();
+            tableModel.addRow(data);
+        }
+        
+        if(cb_mie_goreng.isSelected()){
+            data[0] = txt_mie_goreng.getText();
+            data[1] = "Mie Goreng";
+            data[2] = "Rp. 6.000";
+            data[3] = "Rp. "+ txt_mie_goreng1.getText();
+            tableModel.addRow(data);
+        }
+        if(cb_telor_ceplok.isSelected()){
+            data[0] = txt_telor_ceplok.getText();
+            data[1] = "Telor Ceplok/Dadar";
+            data[2] = "Rp. 3.000";
+            data[3] = "Rp. "+ txt_telor_ceplok1.getText();
+            tableModel.addRow(data);
+        }
+        if(cb_air_mineral.isSelected()){
+            data[0] = txt_air_mineral.getText();
+            data[1] = "Air Mineral";
+            data[2] = "Rp. 5.000";
+            data[3] = "Rp. "+ txt_air_mineral1.getText();
+            tableModel.addRow(data);
+        }
+        if(cb_teh_pucuk.isSelected()){
+            data[0] = txt_teh_pucuk.getText();
+            data[1] = "Teh Pucuk";
+            data[2] = "Rp. 6.000";
+            data[3] = "Rp. "+ txt_teh_pucuk1.getText();
+            tableModel.addRow(data);
+        }
+            
+        
+        
+    }//GEN-LAST:event_btn_previewActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        banyakdisable();
+        txt_jumlah.setText("0");
+        btn_cetak.setVisible(false);
+        btn_preview.setVisible(false);
+        jPanel4.setVisible(false);
+        
+        cb_usus_ndower.setSelected(false);
+        txt_usus_ndower.setText("0");
+        txt_usus_ndower1.setText("0");
+
+        cb_ceker_ndower.setSelected(false);
+        txt_ceker_ndower.setText("0");
+        txt_ceker_ndower1.setText("0");
+
+        cb_sayap_ndower.setSelected(false);
+        txt_sayap_ndower.setText("0");
+        txt_sayap_ndower1.setText("0");
+
+        cb_kepala_ndower.setSelected(false);
+        txt_kepala_ndower.setText("0");
+        txt_kepala_ndower1.setText("0");
+
+        cb_ayam_geprek.setSelected(false);
+        txt_ayam_geprek.setText("0");
+        txt_ayam_geprek1.setText("0");
+
+        cb_mie_nelongso.setSelected(false);
+        txt_mie_nelongso.setText("0");
+        txt_mie_nelongso1.setText("0");
+
+        cb_paket_nasi_ayam_geprek.setSelected(false);
+        txt_paket_nasi_ayam_geprek.setText("0");
+        txt_paket_nasi_ayam_geprek1.setText("0");
+
+        cb_paket_mie_ayam_geprek.setSelected(false);
+        txt_paket_mie_ayam_geprek.setText("0");
+        txt_paket_mie_ayam_geprek1.setText("0");
+
+        cb_nasi.setSelected(false);
+        txt_nasi.setText("0");
+        txt_nasi1.setText("0");
+
+        cb_mie_goreng.setSelected(false);
+        txt_mie_goreng.setText("0");
+        txt_mie_goreng1.setText("0");
+
+        cb_telor_ceplok.setSelected(false);
+        txt_telor_ceplok.setText("0");
+        txt_telor_ceplok1.setText("0");
+
+        cb_air_mineral.setSelected(false);
+        txt_air_mineral.setText("0");
+        txt_air_mineral1.setText("0");
+
+        cb_teh_pucuk.setSelected(false);
+        txt_teh_pucuk.setText("0");
+        txt_teh_pucuk1.setText("0");
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cetakActionPerformed
+        // TODO add your handling code here:
+        PrinterJob job = PrinterJob.getPrinterJob();
+        job.setPrintable(new Printable(){
+           public int print(Graphics pg, PageFormat pf,int pageNum){
+                if(pageNum>0){
+                   return Printable.NO_SUCH_PAGE;
+                }
+                Graphics2D g2 = (Graphics2D)pg;
+                g2.translate(pf.getImageableX(), pf.getImageableY());
+                g2.scale(0.93, 0.93);    
+                jPanel4.paint(g2);
+                return Printable.PAGE_EXISTS;
+            } 
+        });
+        boolean a = job.printDialog();
+        if(a){
+            try{
+                job.print();
+            } catch(PrinterException ex){
+                Logger.getLogger(frm_simulasi_kasus.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btn_cetakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -901,9 +1303,9 @@ public class bon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Harga;
-    private javax.swing.JTextArea Tujuan;
-    private javax.swing.JTextField air_mineral;
-    private javax.swing.JTextField air_mineral1;
+    private javax.swing.JButton btn_cetak;
+    private javax.swing.JButton btn_hitung;
+    private javax.swing.JButton btn_preview;
     private javax.swing.JCheckBox cb_air_mineral;
     private javax.swing.JCheckBox cb_ayam_geprek;
     private javax.swing.JCheckBox cb_ceker_ndower;
@@ -918,7 +1320,6 @@ public class bon extends javax.swing.JFrame {
     private javax.swing.JCheckBox cb_telor_ceplok;
     private javax.swing.JCheckBox cb_usus_ndower;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -928,18 +1329,13 @@ public class bon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -948,52 +1344,43 @@ public class bon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTable tableprint;
-    private javax.swing.JTable tableprint1;
-    private javax.swing.JTable tableprint2;
+    private javax.swing.JTable table_bon;
+    private javax.swing.JTextArea txa_tujuan;
+    private javax.swing.JTextField txt_air_mineral;
+    private javax.swing.JTextField txt_air_mineral1;
     private javax.swing.JTextField txt_ayam_geprek;
     private javax.swing.JTextField txt_ayam_geprek1;
     private javax.swing.JTextField txt_ceker_ndower;
     private javax.swing.JTextField txt_ceker_ndower1;
+    private javax.swing.JLabel txt_jumlah;
+    private javax.swing.JLabel txt_jumlah_print;
     private javax.swing.JTextField txt_kepala_ndower;
     private javax.swing.JTextField txt_kepala_ndower1;
     private javax.swing.JTextField txt_mie_goreng;
     private javax.swing.JTextField txt_mie_goreng1;
     private javax.swing.JTextField txt_mie_nelongso;
     private javax.swing.JTextField txt_mie_nelongso1;
-    private javax.swing.JLabel txt_nama;
-    private javax.swing.JLabel txt_nama1;
-    private javax.swing.JLabel txt_nama2;
-    private javax.swing.JLabel txt_nama3;
     private javax.swing.JTextField txt_nasi;
     private javax.swing.JTextField txt_nasi1;
-    private javax.swing.JLabel txt_nim;
-    private javax.swing.JLabel txt_nim1;
-    private javax.swing.JLabel txt_nim2;
+    private javax.swing.JLabel txt_nota;
     private javax.swing.JTextField txt_paket_mie_ayam_geprek;
     private javax.swing.JTextField txt_paket_mie_ayam_geprek1;
     private javax.swing.JTextField txt_paket_nasi_ayam_geprek;
     private javax.swing.JTextField txt_paket_nasi_ayam_geprek1;
     private javax.swing.JTextField txt_sayap_ndower;
     private javax.swing.JTextField txt_sayap_ndower1;
+    private javax.swing.JLabel txt_tanggal;
     private javax.swing.JTextField txt_teh_pucuk;
     private javax.swing.JTextField txt_teh_pucuk1;
     private javax.swing.JTextField txt_telor_ceplok;
     private javax.swing.JTextField txt_telor_ceplok1;
+    private javax.swing.JLabel txt_tujuan;
     private javax.swing.JTextField txt_usus_ndower;
     private javax.swing.JTextField txt_usus_ndower1;
     // End of variables declaration//GEN-END:variables
