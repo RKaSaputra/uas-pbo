@@ -17,15 +17,17 @@ public class frm_utama extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
+        data_mahasiswa = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
-        jButton2 = new javax.swing.JButton();
+        data_mata_kuliah = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JToolBar.Separator();
-        jButton3 = new javax.swing.JButton();
+        data_nilai = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
-        jButton4 = new javax.swing.JButton();
+        simulasi_nilai_akhir = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        jButton5 = new javax.swing.JButton();
+        cetak_nilai = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
+        simulasi_kasus = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -50,66 +52,79 @@ public class frm_utama extends javax.swing.JFrame {
         jLabel11.setText("10121112 / Teuku Dika S. Z");
 
         jToolBar2.setRollover(true);
+        jToolBar2.setEnabled(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/mahasiswa.png"))); // NOI18N
-        jButton1.setText("Data Mahasiswa");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 78));
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        data_mahasiswa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/mahasiswa.png"))); // NOI18N
+        data_mahasiswa.setText("Data Mahasiswa");
+        data_mahasiswa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        data_mahasiswa.setPreferredSize(new java.awt.Dimension(100, 78));
+        data_mahasiswa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        data_mahasiswa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                data_mahasiswaActionPerformed(evt);
             }
         });
-        jToolBar2.add(jButton1);
+        jToolBar2.add(data_mahasiswa);
         jToolBar2.add(jSeparator5);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/mata_kuliah.png"))); // NOI18N
-        jButton2.setText("Data Mata Kuliah");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        data_mata_kuliah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/mata_kuliah.png"))); // NOI18N
+        data_mata_kuliah.setText("Data Mata Kuliah");
+        data_mata_kuliah.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        data_mata_kuliah.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        data_mata_kuliah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                data_mata_kuliahActionPerformed(evt);
             }
         });
-        jToolBar2.add(jButton2);
+        jToolBar2.add(data_mata_kuliah);
         jToolBar2.add(jSeparator7);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/nilai.png"))); // NOI18N
-        jButton3.setText("Data Nilai");
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        data_nilai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/nilai.png"))); // NOI18N
+        data_nilai.setText("Data Nilai");
+        data_nilai.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        data_nilai.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        data_nilai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                data_nilaiActionPerformed(evt);
             }
         });
-        jToolBar2.add(jButton3);
+        jToolBar2.add(data_nilai);
         jToolBar2.add(jSeparator6);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/archiv.png"))); // NOI18N
-        jButton4.setText("Simulasi Nilai Akhir");
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        simulasi_nilai_akhir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/archiv.png"))); // NOI18N
+        simulasi_nilai_akhir.setText("Simulasi Nilai Akhir");
+        simulasi_nilai_akhir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        simulasi_nilai_akhir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        simulasi_nilai_akhir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                simulasi_nilai_akhirActionPerformed(evt);
             }
         });
-        jToolBar2.add(jButton4);
+        jToolBar2.add(simulasi_nilai_akhir);
         jToolBar2.add(jSeparator8);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/print.png"))); // NOI18N
-        jButton5.setText("Simulasi Kasus");
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        cetak_nilai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/print.png"))); // NOI18N
+        cetak_nilai.setText("Cetak Nilai");
+        cetak_nilai.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        cetak_nilai.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        cetak_nilai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                cetak_nilaiActionPerformed(evt);
             }
         });
-        jToolBar2.add(jButton5);
+        jToolBar2.add(cetak_nilai);
+        jToolBar2.add(jSeparator9);
+
+        simulasi_kasus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/bon.png"))); // NOI18N
+        simulasi_kasus.setText("Simulasi Kasus");
+        simulasi_kasus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        simulasi_kasus.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        simulasi_kasus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simulasi_kasusActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(simulasi_kasus);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/photo/Reihan.jpeg"))); // NOI18N
         jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
@@ -169,16 +184,16 @@ public class frm_utama extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(22, 22, 22))
             .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
+                .addGap(66, 66, 66)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(27, 27, 27)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,50 +219,49 @@ public class frm_utama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void data_mahasiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_mahasiswaActionPerformed
         frm_mahasiswa mahasiswa = new frm_mahasiswa();
         mahasiswa.setVisible(true);
         dispose();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_data_mahasiswaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    private void data_mata_kuliahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_mata_kuliahActionPerformed
         frm_mata_kuliah matkul = new frm_mata_kuliah();
         matkul.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_data_mata_kuliahActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+    private void data_nilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_nilaiActionPerformed
         frm_mahasiswa_nilai mahasiswa_nilai = new frm_mahasiswa_nilai();
         mahasiswa_nilai.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_data_nilaiActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+    private void simulasi_nilai_akhirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simulasi_nilai_akhirActionPerformed
         frm_simulasi_nilai simulasi_nilai = new frm_simulasi_nilai();
         simulasi_nilai.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_simulasi_nilai_akhirActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        frm_simulasi_kasus simulasi_kasus = new frm_simulasi_kasus();
-        simulasi_kasus.setVisible(true);
+    private void cetak_nilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetak_nilaiActionPerformed
+        frm_cetak_nilai cetak_nilai = new frm_cetak_nilai();
+        cetak_nilai.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_cetak_nilaiActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        dispose();
         frm_login login = new frm_login();
         login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void simulasi_kasusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simulasi_kasusActionPerformed
+        dispose();
+        frm_simulasi_kasus simulasi_kasus = new frm_simulasi_kasus();
+        simulasi_kasus.setVisible(true);
+    }//GEN-LAST:event_simulasi_kasusActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -258,11 +272,10 @@ public class frm_utama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton cetak_nilai;
+    private javax.swing.JButton data_mahasiswa;
+    private javax.swing.JButton data_mata_kuliah;
+    private javax.swing.JButton data_nilai;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -279,6 +292,9 @@ public class frm_utama extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JToolBar jToolBar2;
+    private javax.swing.JButton simulasi_kasus;
+    private javax.swing.JButton simulasi_nilai_akhir;
     // End of variables declaration//GEN-END:variables
 }

@@ -67,7 +67,6 @@ public class frm_login extends javax.swing.JFrame {
             public void windowLostFocus(java.awt.event.WindowEvent evt) {
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_username.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         txt_username.setText("Username");
@@ -80,7 +79,6 @@ public class frm_login extends javax.swing.JFrame {
                 txt_usernameFocusLost(evt);
             }
         });
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 200, 30));
 
         btn_login.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btn_login.setText("Masuk");
@@ -89,7 +87,6 @@ public class frm_login extends javax.swing.JFrame {
                 btn_loginActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, 30));
 
         btn_register.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btn_register.setText("Daftar");
@@ -98,7 +95,6 @@ public class frm_login extends javax.swing.JFrame {
                 btn_registerActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, 30));
 
         txt_password.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         txt_password.setText("Password");
@@ -117,13 +113,51 @@ public class frm_login extends javax.swing.JFrame {
                 txt_passwordKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 200, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kemahasiswaan_reihan_nasywan_mustofa_kamil_10121113/icon/login.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         jCheckBox1.setHideActionText(true);
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 6, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(btn_register))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(btn_login))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(469, 469, 469)
+                .addComponent(jCheckBox1))
+            .addComponent(jLabel4)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(350, 350, 350)
+                .addComponent(btn_register, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(350, 350, 350)
+                .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jCheckBox1))
+            .addComponent(jLabel4)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
