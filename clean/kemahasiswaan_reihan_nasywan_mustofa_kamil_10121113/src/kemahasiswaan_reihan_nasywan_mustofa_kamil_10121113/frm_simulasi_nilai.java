@@ -915,6 +915,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                 btn_simpan.setEnabled(false);
                 btn_batal.setEnabled(false);
                 btn_keluar.setEnabled(true);
+                
                 disabled_text();
                 clear_text();
                 stt.close();

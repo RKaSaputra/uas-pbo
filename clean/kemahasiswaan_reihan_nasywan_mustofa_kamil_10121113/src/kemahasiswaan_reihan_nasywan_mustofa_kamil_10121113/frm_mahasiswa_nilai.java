@@ -110,7 +110,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database,user,pass);
             Statement stt=kon.createStatement();
-            String SQL = "SELECT * from mahasiswa_nilai WHERE nim LIKE '%"+key+"%' OR nama LIKE '%"+key+"%'";
+            String SQL = "SELECT * from mahasiswa_nilai WHERE nim LIKE '%"+key+"%' OR nama LIKE '%"+key+"%' OR nama_mk LIKE '%"+key+"%'";
             ResultSet res = stt.executeQuery(SQL);
             
             while(res.next()){
@@ -812,13 +812,7 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        String data[]=new String[15];
-        
-        
-        
-        
-        
-        
+        String data[]=new String[15];        
         
         if((txt_kehadiran.getText().isEmpty()) || (txt_tugas1.getText().isEmpty()) || (txt_tugas2.getText().isEmpty()) || (txt_tugas3.getText().isEmpty()) || (txt_uts.getText().isEmpty()) ||(txt_uas.getText().isEmpty()) ){
             JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong, Silahkan Lengkapi ");
@@ -908,6 +902,8 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
                     btn_simpan.setEnabled(false);
                     btn_batal.setEnabled(false);
                     btn_keluar.setEnabled(true);
+                    txt_search.setEnabled(true);
+
                     disabled_text();
                     clear_text();
                     stt.close();
