@@ -188,8 +188,18 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         txt_telor_ceplok1.setText("0");
 
         txt_usus_ndower.setText("0");
+        txt_usus_ndower.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usus_ndowerKeyTyped(evt);
+            }
+        });
 
         txt_ceker_ndower.setText("0");
+        txt_ceker_ndower.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_ceker_ndowerKeyTyped(evt);
+            }
+        });
 
         txt_air_mineral1.setText("0");
 
@@ -198,29 +208,84 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         jumlah.setText("Jumlah");
 
         txt_sayap_ndower.setText("0");
+        txt_sayap_ndower.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_sayap_ndowerKeyTyped(evt);
+            }
+        });
 
         tujuan.setText("Tujuan");
         tujuan.setToolTipText("");
 
         txt_kepala_ndower.setText("0");
+        txt_kepala_ndower.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_kepala_ndowerKeyTyped(evt);
+            }
+        });
 
         txt_ayam_geprek.setText("0");
+        txt_ayam_geprek.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_ayam_geprekKeyTyped(evt);
+            }
+        });
 
         txt_mie_nelongso.setText("0");
+        txt_mie_nelongso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_mie_nelongsoKeyTyped(evt);
+            }
+        });
 
         txt_paket_nasi_ayam_geprek.setText("0");
+        txt_paket_nasi_ayam_geprek.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_paket_nasi_ayam_geprekKeyTyped(evt);
+            }
+        });
 
         txt_paket_mie_ayam_geprek.setText("0");
+        txt_paket_mie_ayam_geprek.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_paket_mie_ayam_geprekKeyTyped(evt);
+            }
+        });
 
         txt_nasi.setText("0");
+        txt_nasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nasiKeyTyped(evt);
+            }
+        });
 
         txt_mie_goreng.setText("0");
+        txt_mie_goreng.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_mie_gorengKeyTyped(evt);
+            }
+        });
 
         txt_telor_ceplok.setText("0");
+        txt_telor_ceplok.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_telor_ceplokKeyTyped(evt);
+            }
+        });
 
         txt_air_mineral.setText("0");
+        txt_air_mineral.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_air_mineralKeyTyped(evt);
+            }
+        });
 
         txt_teh_pucuk.setText("0");
+        txt_teh_pucuk.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_teh_pucukKeyTyped(evt);
+            }
+        });
 
         daftar_menu.setText("Daftar Menu");
 
@@ -1190,6 +1255,97 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         utama.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_keluarActionPerformed
+
+    private void txt_usus_ndowerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usus_ndowerKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_usus_ndowerKeyTyped
+
+    private void txt_ceker_ndowerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ceker_ndowerKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_ceker_ndowerKeyTyped
+
+    private void txt_sayap_ndowerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_sayap_ndowerKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_sayap_ndowerKeyTyped
+
+    private void txt_kepala_ndowerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_kepala_ndowerKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_kepala_ndowerKeyTyped
+
+    private void txt_ayam_geprekKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ayam_geprekKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_ayam_geprekKeyTyped
+
+    private void txt_mie_nelongsoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_mie_nelongsoKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_mie_nelongsoKeyTyped
+
+    private void txt_paket_nasi_ayam_geprekKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_paket_nasi_ayam_geprekKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_paket_nasi_ayam_geprekKeyTyped
+
+    private void txt_paket_mie_ayam_geprekKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_paket_mie_ayam_geprekKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_paket_mie_ayam_geprekKeyTyped
+
+    private void txt_nasiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nasiKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_nasiKeyTyped
+
+    private void txt_mie_gorengKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_mie_gorengKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_mie_gorengKeyTyped
+
+    private void txt_telor_ceplokKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telor_ceplokKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_telor_ceplokKeyTyped
+
+    private void txt_air_mineralKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_air_mineralKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_air_mineralKeyTyped
+
+    private void txt_teh_pucukKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_teh_pucukKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txt_teh_pucukKeyTyped
 
     public static void main(String args[]) {
          java.awt.EventQueue.invokeLater(new Runnable() {

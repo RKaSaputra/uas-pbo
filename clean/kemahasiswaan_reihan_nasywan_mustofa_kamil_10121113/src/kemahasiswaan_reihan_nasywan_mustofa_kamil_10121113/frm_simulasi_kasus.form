@@ -353,11 +353,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_usus_ndowerKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_ceker_ndower">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_ceker_ndowerKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_air_mineral1">
           <Properties>
@@ -380,6 +386,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_sayap_ndowerKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="tujuan">
           <Properties>
@@ -391,51 +400,81 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_kepala_ndowerKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_ayam_geprek">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_ayam_geprekKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_mie_nelongso">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_mie_nelongsoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_paket_nasi_ayam_geprek">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_paket_nasi_ayam_geprekKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_paket_mie_ayam_geprek">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_paket_mie_ayam_geprekKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_nasi">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nasiKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_mie_goreng">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_mie_gorengKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_telor_ceplok">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_telor_ceplokKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_air_mineral">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_air_mineralKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_teh_pucuk">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_teh_pucukKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="daftar_menu">
           <Properties>

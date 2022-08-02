@@ -265,6 +265,10 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         uts = new javax.swing.JLabel();
         txt_uas = new javax.swing.JTextField();
         kehadiran = new javax.swing.JLabel();
+        persen1 = new javax.swing.JLabel();
+        persen2 = new javax.swing.JLabel();
+        persen3 = new javax.swing.JLabel();
+        persen4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
@@ -478,6 +482,18 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         kehadiran.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         kehadiran.setText("Kehadiran");
 
+        persen1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        persen1.setText("%");
+
+        persen2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        persen2.setText("%");
+
+        persen3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        persen3.setText("%");
+
+        persen4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        persen4.setText("%");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -511,10 +527,22 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_nama_mk, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_kode_mk, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_p_uas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_p_tugas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_p_uts, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_p_absen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txt_p_uas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(persen4))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txt_p_tugas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(persen2))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txt_p_uts, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(persen3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txt_p_absen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(persen1))))
                             .addComponent(jLabel11)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -557,19 +585,25 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_p_absen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel7)
+                            .addComponent(persen1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_p_tugas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(persen2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9)
-                            .addComponent(txt_p_uts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_p_uts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(persen3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10)
-                            .addComponent(txt_p_uas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_p_uas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(persen4))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pertemuan)
@@ -605,7 +639,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
                     .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_keluar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -779,7 +813,6 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         } catch(Exception ex){
             System.err.println(ex.getMessage());
         }
-        
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
@@ -787,23 +820,23 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
         
         int selectedRow = table_simulasi_nilai.getSelectedRow();
         
-        int P_absen = Integer.parseInt(txt_p_absen.getText());
-        int P_tugas = Integer.parseInt(txt_p_tugas.getText());
-        int P_uts = Integer.parseInt(txt_p_uts.getText());
-        int P_uas = Integer.parseInt(txt_p_uas.getText());
+        double P_absen = Double.parseDouble(txt_p_absen.getText());
+        double P_tugas = Double.parseDouble(txt_p_tugas.getText());
+        double P_uts = Double.parseDouble(txt_p_uts.getText());
+        double P_uas = Double.parseDouble(txt_p_uas.getText());
         
-        int I_kehadiran = Integer.parseInt(txt_kehadiran.getText());
+        double I_kehadiran = Double.parseDouble(txt_kehadiran.getText());
         int I_tugas1 = Integer.parseInt(txt_tugas1.getText());
         int I_tugas2 = Integer.parseInt(txt_tugas2.getText());
         int I_tugas3 = Integer.parseInt(txt_tugas3.getText());
         int I_uts = Integer.parseInt(txt_uts.getText());
         int I_uas = Integer.parseInt(txt_uas.getText());
         
-        double n_absen = (((I_kehadiran/14)*100*(P_absen/100))/100);
-        double n_tugas = (((I_tugas1+I_tugas2+I_tugas3)/3)*((P_tugas/100)/100));
+        double n_absen = (((I_kehadiran/14)*100*P_absen)/100);
+        double n_tugas = ((I_tugas1+I_tugas2+I_tugas3)/3)*(P_tugas/100);
         double n_uts =  I_uts*(P_uts/100);
         double n_uas = I_uas*(P_uas/100);
-        double n_akhir = n_absen+n_tugas+n_uts+n_uas;
+        double n_akhir = n_absen + n_tugas + n_uts + n_uas;
         
         String index = "";
         
@@ -828,7 +861,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
             ket = "TIDAK LULUS";
         }
         
-        if ((txt_tugas1.getText().isEmpty()) || (txt_kode_mk.getText().isEmpty())){
+        if ((txt_tugas1.getText().isEmpty()) || (txt_kode_mk.getText().isEmpty()) || (txt_tugas2.getText().isEmpty()) || (txt_tugas3.getText().isEmpty()) || (txt_uts.getText().isEmpty()) || (txt_uas.getText().isEmpty()) || (txt_p_absen.getText().isEmpty()) || (txt_p_tugas.getText().isEmpty()) || (txt_p_uts.getText().isEmpty()) || (txt_p_uas.getText().isEmpty())){
             JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
             txt_kode_mk.requestFocus();
         }else{
@@ -981,9 +1014,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nama_mkPopupMenuWillBecomeInvisible
 
     private void txt_p_absenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_p_absenKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-        
         if( txt_p_absen.getText().length()>=3 ) {
             evt.consume();
         }
@@ -993,9 +1024,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_p_absenKeyTyped
 
     private void txt_p_tugasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_p_tugasKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_p_tugas.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1005,9 +1034,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_p_tugasKeyTyped
 
     private void txt_p_utsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_p_utsKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_p_uts.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1017,9 +1044,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_p_utsKeyTyped
 
     private void txt_p_uasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_p_uasKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_p_uas.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1029,9 +1054,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_p_uasKeyTyped
 
     private void txt_kehadiranKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_kehadiranKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_kehadiran.getText().length()>=2 ) {
             evt.consume();
         }
@@ -1041,9 +1064,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_kehadiranKeyTyped
 
     private void txt_tugas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas1KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_tugas1.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1053,9 +1074,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_tugas1KeyTyped
 
     private void txt_tugas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas2KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_tugas2.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1065,9 +1084,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_tugas2KeyTyped
 
     private void txt_tugas3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas3KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_tugas3.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1077,9 +1094,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_tugas3KeyTyped
 
     private void txt_utsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_utsKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_uts.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1089,9 +1104,7 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_utsKeyTyped
 
     private void txt_uasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_uasKeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-
         if( txt_uas.getText().length()>=3 ) {
             evt.consume();
         }
@@ -1125,6 +1138,10 @@ public class frm_simulasi_nilai extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel kehadiran;
+    private javax.swing.JLabel persen1;
+    private javax.swing.JLabel persen2;
+    private javax.swing.JLabel persen3;
+    private javax.swing.JLabel persen4;
     private javax.swing.JLabel pertemuan;
     private javax.swing.JTable table_simulasi_nilai;
     private javax.swing.JLabel tugas1;

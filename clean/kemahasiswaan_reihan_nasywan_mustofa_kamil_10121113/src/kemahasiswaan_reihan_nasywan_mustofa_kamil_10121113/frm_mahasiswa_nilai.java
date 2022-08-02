@@ -377,6 +377,11 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             }
         });
 
+        txt_kehadiran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_kehadiranActionPerformed(evt);
+            }
+        });
         txt_kehadiran.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_kehadiranKeyTyped(evt);
@@ -1057,36 +1062,60 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_searchActionPerformed
 
     private void txt_kehadiranKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_kehadiranKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+        }
         if(txt_kehadiran.getText().length()>=2) {  
             evt.consume();
         }
     }//GEN-LAST:event_txt_kehadiranKeyTyped
 
     private void txt_tugas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas1KeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+        }
         if(txt_tugas1.getText().length()>=3) {  
             evt.consume();
         }
     }//GEN-LAST:event_txt_tugas1KeyTyped
 
     private void txt_tugas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas2KeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+        }
         if(txt_tugas2.getText().length()>=3) {  
             evt.consume();
         }
     }//GEN-LAST:event_txt_tugas2KeyTyped
 
     private void txt_tugas3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tugas3KeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+        }
         if(txt_tugas3.getText().length()>=3) {  
             evt.consume();
         }
     }//GEN-LAST:event_txt_tugas3KeyTyped
 
     private void txt_utsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_utsKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+        }
         if(txt_uts.getText().length()>=3) {  
             evt.consume();
         }
     }//GEN-LAST:event_txt_utsKeyTyped
 
     private void txt_uasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_uasKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+           evt.consume();
+        }
         if(txt_uas.getText().length()>=3) {  
             evt.consume();
         }
@@ -1097,6 +1126,10 @@ public class frm_mahasiswa_nilai extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txt_angkatanKeyTyped
+
+    private void txt_kehadiranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_kehadiranActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_kehadiranActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
