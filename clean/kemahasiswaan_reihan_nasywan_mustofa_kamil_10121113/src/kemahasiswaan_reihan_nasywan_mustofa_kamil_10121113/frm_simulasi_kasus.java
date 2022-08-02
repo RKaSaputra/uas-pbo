@@ -149,8 +149,9 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         btn_preview = new javax.swing.JButton();
         btn_cetak = new javax.swing.JButton();
         label_jumlah2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_reset = new javax.swing.JButton();
         txt_jumlah = new javax.swing.JLabel();
+        btn_keluar = new javax.swing.JButton();
         hr1 = new javax.swing.JPanel();
         toko_kafe_mamat = new javax.swing.JLabel();
         hr2 = new javax.swing.JSeparator();
@@ -376,15 +377,22 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         label_jumlah2.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         label_jumlah2.setText("Jumlah : Rp.");
 
-        jButton1.setText("Reset");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_reset.setText("Reset");
+        btn_reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_resetActionPerformed(evt);
             }
         });
 
         txt_jumlah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         txt_jumlah.setText("0");
+
+        btn_keluar.setText("Keluar");
+        btn_keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_keluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -394,98 +402,97 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
                 .addGap(0, 14, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cb_ceker_ndower)
+                                .addComponent(cb_sayap_ndower)
+                                .addComponent(cb_kepala_ndower)
+                                .addComponent(cb_ayam_geprek)
+                                .addComponent(cb_mie_nelongso)
+                                .addComponent(cb_paket_nasi_ayam_geprek)
+                                .addComponent(cb_usus_ndower))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cb_nasi)
+                                .addComponent(cb_paket_mie_ayam_geprek)
+                                .addComponent(cb_mie_goreng)
+                                .addComponent(cb_telor_ceplok)
+                                .addComponent(cb_air_mineral)
+                                .addComponent(cb_teh_pucuk))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(daftar_menu)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cb_ceker_ndower)
-                                        .addComponent(cb_sayap_ndower)
-                                        .addComponent(cb_kepala_ndower)
-                                        .addComponent(cb_ayam_geprek)
-                                        .addComponent(cb_mie_nelongso)
-                                        .addComponent(cb_paket_nasi_ayam_geprek)
-                                        .addComponent(cb_usus_ndower))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cb_nasi)
-                                        .addComponent(cb_paket_mie_ayam_geprek)
-                                        .addComponent(cb_mie_goreng)
-                                        .addComponent(cb_telor_ceplok)
-                                        .addComponent(cb_air_mineral)
-                                        .addComponent(cb_teh_pucuk))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(16, 16, 16)
-                                        .addComponent(daftar_menu)))
+                                .addGap(13, 13, 13)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addComponent(harga))
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel8)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel14)
-                                            .addComponent(jLabel15))))
-                                .addGap(31, 31, 31)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addComponent(banyak))
-                                    .addComponent(txt_paket_mie_ayam_geprek)
-                                    .addComponent(txt_ayam_geprek)
-                                    .addComponent(txt_kepala_ndower)
-                                    .addComponent(txt_sayap_ndower)
-                                    .addComponent(txt_ceker_ndower)
-                                    .addComponent(txt_usus_ndower)
-                                    .addComponent(txt_mie_nelongso)
-                                    .addComponent(txt_paket_nasi_ayam_geprek)
-                                    .addComponent(txt_nasi)
-                                    .addComponent(txt_mie_goreng)
-                                    .addComponent(txt_telor_ceplok)
-                                    .addComponent(txt_air_mineral)
-                                    .addComponent(txt_teh_pucuk, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_teh_pucuk1)
-                                    .addComponent(txt_air_mineral1)
-                                    .addComponent(txt_telor_ceplok1)
-                                    .addComponent(txt_mie_goreng1)
-                                    .addComponent(txt_nasi1)
-                                    .addComponent(txt_paket_mie_ayam_geprek1)
-                                    .addComponent(txt_paket_nasi_ayam_geprek1)
-                                    .addComponent(txt_mie_nelongso1)
-                                    .addComponent(txt_ayam_geprek1)
-                                    .addComponent(txt_kepala_ndower1)
-                                    .addComponent(txt_sayap_ndower1)
-                                    .addComponent(txt_ceker_ndower1)
-                                    .addComponent(txt_usus_ndower1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(16, 16, 16)
-                                        .addComponent(jumlah))))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(10, 10, 10)
+                                        .addComponent(harga))
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15))))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(banyak))
+                            .addComponent(txt_paket_mie_ayam_geprek)
+                            .addComponent(txt_ayam_geprek)
+                            .addComponent(txt_kepala_ndower)
+                            .addComponent(txt_sayap_ndower)
+                            .addComponent(txt_ceker_ndower)
+                            .addComponent(txt_usus_ndower)
+                            .addComponent(txt_mie_nelongso)
+                            .addComponent(txt_paket_nasi_ayam_geprek)
+                            .addComponent(txt_nasi)
+                            .addComponent(txt_mie_goreng)
+                            .addComponent(txt_telor_ceplok)
+                            .addComponent(txt_air_mineral)
+                            .addComponent(txt_teh_pucuk, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_teh_pucuk1)
+                            .addComponent(txt_air_mineral1)
+                            .addComponent(txt_telor_ceplok1)
+                            .addComponent(txt_mie_goreng1)
+                            .addComponent(txt_nasi1)
+                            .addComponent(txt_paket_mie_ayam_geprek1)
+                            .addComponent(txt_paket_nasi_ayam_geprek1)
+                            .addComponent(txt_mie_nelongso1)
+                            .addComponent(txt_ayam_geprek1)
+                            .addComponent(txt_kepala_ndower1)
+                            .addComponent(txt_sayap_ndower1)
+                            .addComponent(txt_ceker_ndower1)
+                            .addComponent(txt_usus_ndower1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jumlah))))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(tujuan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_preview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_hitung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_cetak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_keluar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btn_preview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_hitung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_cetak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label_jumlah2)
@@ -613,8 +620,9 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_cetak)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
-                .addGap(30, 30, 30))
+                        .addComponent(btn_reset)))
+                .addGap(8, 8, 8)
+                .addComponent(btn_keluar))
         );
 
         hr1.setBackground(new java.awt.Color(255, 255, 255));
@@ -741,19 +749,20 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(hr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -1091,7 +1100,7 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         btn_cetak.setVisible(true);
     }//GEN-LAST:event_btn_previewActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
         banyakdisable();
         txt_jumlah.setText("0");
         btn_cetak.setVisible(false);
@@ -1150,7 +1159,7 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         txt_teh_pucuk.setText("0");
         txt_teh_pucuk1.setText("0");
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_resetActionPerformed
 
     private void btn_cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cetakActionPerformed
         PrinterJob job = PrinterJob.getPrinterJob();
@@ -1176,6 +1185,12 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_cetakActionPerformed
 
+    private void btn_keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_keluarActionPerformed
+        frm_utama utama = new frm_utama();
+        utama.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_keluarActionPerformed
+
     public static void main(String args[]) {
          java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1188,7 +1203,9 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
     private javax.swing.JLabel banyak;
     private javax.swing.JButton btn_cetak;
     private javax.swing.JButton btn_hitung;
+    private javax.swing.JButton btn_keluar;
     private javax.swing.JButton btn_preview;
+    private javax.swing.JButton btn_reset;
     private javax.swing.JCheckBox cb_air_mineral;
     private javax.swing.JCheckBox cb_ayam_geprek;
     private javax.swing.JCheckBox cb_ceker_ndower;
@@ -1206,7 +1223,6 @@ public class frm_simulasi_kasus extends javax.swing.JFrame {
     private javax.swing.JLabel harga;
     private javax.swing.JPanel hr1;
     private javax.swing.JSeparator hr2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
